@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms'; // Import FormsModule
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './admin/header/header.component';
@@ -14,7 +14,6 @@ import { ChartComponent } from './admin/chart/chart.component';
 import { TableComponent } from './admin/table/table.component';
 import { FormComponent } from './admin/form/form.component';
 import { BlankComponent } from './admin/blank/blank.component';
-
 
 @NgModule({
   declarations: [
@@ -33,7 +32,7 @@ import { BlankComponent } from './admin/blank/blank.component';
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule // Add FormsModule here
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
