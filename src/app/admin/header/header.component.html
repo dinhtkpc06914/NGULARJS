@@ -20,80 +20,78 @@
         <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
+                    <span class="sr-only">Chuyển đổi điều hướng</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Binary admin</a> 
+                <a class="navbar-brand" href="/admin">Quản trị Admin</a> 
             </div>
   <div style="color: white;
 padding: 15px 50px 5px 50px;
 float: right;
-font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-danger square-btn-adjust">Logout</a> </div>
+font-size: 16px;"> Truy cập cuối cùng: 30 Tháng 5 năm 2014 &nbsp; <a onclick="return('Bạn có muốn đăng xuất không ?')" href="/client/logout" class="btn btn-danger square-btn-adjust">Đăng xuất</a> </div>
         </nav>   
-           <!-- /. NAV TOP  -->
+           <!-- THANH ĐIỀU HƯỚNG TRÊN CÙNG  -->
                 <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
 				<li class="text-center">
-                    <img src="../../assets/admin/img/find_user.png" class="user-image img-responsive"/>
-					</li>
-				
-					
+                   
+                    
+					</li>			
                     <li>
-                        <a class="active-menu"  href="index.html"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
+                        <a class=""  href="../admin"><i class="fa fa-dashboard fa-3x"></i> Bảng điều khiển</a>
                     </li>
-                     <li>
-                        <a  href="ui.html"><i class="fa fa-desktop fa-3x"></i> UI Elements</a>
-                    </li>
+                  
                     <li>
-                        <a  href="tab-panel.html"><i class="fa fa-qrcode fa-3x"></i> Tabs & Panels</a>
-                    </li>
-						   <li  >
-                        <a   href="chart.html"><i class="fa fa-bar-chart-o fa-3x"></i> Morris Charts</a>
-                    </li>	
-                      <li  >
-                        <a  href="table.html"><i class="fa fa-table fa-3x"></i> Table Examples</a>
-                    </li>
-                    <li  >
-                        <a  href="form.html"><i class="fa fa-edit fa-3x"></i> Forms </a>
-                    </li>				
+                        <a href="#"><i class="fa fa-sitemap fa-3x"></i>Khách hàng<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="/admin/add_users">Thêm khách hàng</a>
+                            </li>
+                            <li>
+                                <a href="/admin/list_users">Danh sách khách hàng</a>
+                            </li>
+                            
+                        </ul>
+                      </li>  			
+				               	                   
+                    <li>
+                        <a href="#"><i class="fa fa-sitemap fa-3x"></i>Danh mục<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="/admin/add_categories">Thêm danh mục</a>
+                            </li>
+                            <li>
+                                <a href="/admin/list_categories">Danh sách danh mục</a>
+                            </li>
+                            
+                        </ul>
+                      </li>  			
 					
 					                   
                     <li>
-                        <a href="#"><i class="fa fa-sitemap fa-3x"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-sitemap fa-3x"></i>Sản Phẩm<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="#">Second Level Link</a>
+                                <a href="/admin/getadd_products">Thêm sản phẩm</a>
                             </li>
                             <li>
-                                <a href="#">Second Level Link</a>
+                                <a href="/admin/list_products">Danh sách sản phẩm</a>
                             </li>
-                            <li>
-                                <a href="#">Second Level Link<span class="fa arrow"></span></a>
-                                <ul class="nav nav-third-level">
-                                    <li>
-                                        <a href="#">Third Level Link</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Third Level Link</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Third Level Link</a>
-                                    </li>
-
-                                </ul>
-                               
-                            </li>
+                            
                         </ul>
                       </li>  
                   <li  >
-                        <a  href="blank.html"><i class="fa fa-square-o fa-3x"></i> Blank Page</a>
+                        <a  href="#"><i class="fa fa-square-o fa-3x"></i> Trang trống</a>
                     </li>	
                 </ul>
+               
             </div>
+            
         </nav>  
+      
         </div>
      <!-- /. WRAPPER  -->
     <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
