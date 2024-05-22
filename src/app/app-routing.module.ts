@@ -10,18 +10,18 @@ import {ChartComponent } from './admin/chart/chart.component';
 import {TableComponent } from './admin/table/table.component';
 import {FormComponent } from './admin/form/form.component';
 import {BlankComponent } from './admin/blank/blank.component';
+import { FooterComponent } from './admin/footer/footer.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
-  { path: '', component: HeaderComponent },
-  { path: '', component: ContentComponent },
+  { path: 'content', component: ContentComponent },
   { path: 'ui', component: UiComponent },
   { path: 'tab-panel', component: TabPanelComponent },
   { path: 'chart', component: ChartComponent },
   { path: 'table', component: TableComponent },
   { path: 'form', component: FormComponent },
   { path: 'blank', component: BlankComponent },
+  
 ];
 
 @NgModule({
