@@ -5,20 +5,20 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Free Bootstrap Admin Template : Binary Admin</title>
-    <!-- BOOTSTRAP STYLES-->
+    <title>Mẫu Quản trị Bootstrap Miễn phí: Binary Admin</title>
+    <!-- STYLES CỦA BOOTSTRAP-->
     <link href="../../assets/admin/css/bootstrap.css" rel="stylesheet" />
-    <!-- FONTAWESOME STYLES-->
+    <!-- STYLES CỦA FONTAWESOME-->
     <link href="../../assets/admin/css/font-awesome.css" rel="stylesheet" />
-    <!-- CUSTOM STYLES-->
+    <!-- STYLES TÙY CHỈNH-->
     <link href="../../assets/admin/css/custom.css" rel="stylesheet" />
-    <!-- GOOGLE FONTS-->
+    <!-- FONT CHỮ GOOGLE-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 </head>
 
 <body>
     <div id="wrapper">
-        <!-- /. NAV SIDE  -->
+        <!-- PHẦN BÊN CẠNH THANH NAVIGATION  -->
         <div id="page-wrapper">
             <div id="page-inner">
                 <div class="col-md-12">
@@ -26,35 +26,35 @@
                 </div>
                 <form (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm">
                     <div class="form-group">
-                        <label for="name">Name</label>
+                        <label for="name">Tên</label>
                         <input type="text" class="form-control" ngModel name="name" #name="ngModel">
                         <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger"></div>
                     </div>
                     <div class="form-group">
-                        <label for="description">Description</label>
+                        <label for="description">Mô tả</label>
                         <input type="text" class="form-control" ngModel name="description" #description="ngModel"
                             required>
                         <div *ngIf="description.invalid && (description.dirty || description.touched)"
                             class="alert alert-danger"></div>
                     </div>
                     <div class="form-group">
-                        <label for="start">Start Date</label>
+                        <label for="start">Ngày Bắt đầu</label>
                         <input type="date" class="form-control" ngModel name="start" #start="ngModel" required>
                         <div *ngIf="start.invalid && (start.dirty ||start.touched)" class="alert alert-danger">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="end">End Date</label>
+                        <label for="end">Ngày Kết thúc</label>
                         <input type="date" class="form-control" ngModel name="end" #end="ngModel" required>
                         <div *ngIf="end.invalid && (end.dirty ||end.touched)" class="alert alert-danger"></div>
                     </div>
                     <div class="form-group">
-                        <label for="team">Team Members</label>
+                        <label for="team">Thành viên Nhóm</label>
                         <input type="text" class="form-control" ngModel name="team" #team="ngModel" required>
                         <div *ngIf="team.invalid && (team.dirty || team.touched)" class="alert alert-danger"></div>
                     </div>
                     <div class="form-group">
-                        <label for="status">Status</label>
+                        <label for="status">Trạng thái</label>
                         <select class="form-control" ngModel name="status" #status="ngModel" required>
                             <option value="0">Chưa xác nhận</option>
                             <option value="1">Đang thực hiện</option>
@@ -62,39 +62,39 @@
                             <option value="2">Đã hủy</option>
                         </select>
                     </div>
-                    <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Đăng Nhập</button>
+                    <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Thêm mới</button>
                 </form>
 
-                <!-- /. ROW  -->
+                <!-- HÀNG DỮ LIỆU  -->
                 <hr />
                 <div class="row">
                     <div class="col-md-12">
-                        <!-- Form Elements -->
+                        <!-- CÁC YẾU TỐ CỦA FORM -->
 
-                        <!-- End Form Elements -->
+                        <!-- Kết thúc Các Yếu tố của Form -->
                     </div>
                 </div>
-                <!-- /. ROW  -->
+                <!-- HÀNG DỮ LIỆU  -->
                 <div class="row">
                     <div class="col-md-12">
 
                     </div>
                 </div>
-                <!-- /. ROW  -->
+                <!-- HÀNG DỮ LIỆU  -->
             </div>
-            <!-- /. PAGE INNER  -->
+            <!-- Kết thúc TRANG NỘI BỘ  -->
         </div>
-        <!-- /. PAGE WRAPPER  -->
+        <!-- Kết thúc BỌC TRANG  -->
     </div>
-    <!-- /. WRAPPER  -->
-    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- Kết thúc BỌC  -->
+    <!-- SCRIPTS - Ở DƯỚI ĐỂ GIẢM THỜI GIAN TẢI-->
     <!-- JQUERY SCRIPTS -->
     <script src="../../assets/admin/js/jquery-1.10.2.js"></script>
     <!-- BOOTSTRAP SCRIPTS -->
     <script src="../../assets/admin/js/bootstrap.min.js"></script>
-    <!-- METISMENU SCRIPTS -->
+    <!-- SCRIPTS CỦA METISMENU -->
     <script src="../../assets/admin/js/jquery.metisMenu.js"></script>
-    <!-- CUSTOM SCRIPTS -->
+    <!-- SCRIPTS TÙY CHỈNH -->
     <script src="../../assets/admin/js/custom.js"></script>
 
 
