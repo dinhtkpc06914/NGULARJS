@@ -14,7 +14,7 @@ import {BlankComponent } from './admin/blank/blank.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'content', component: ContentComponent },
+  { path: '', component: ContentComponent },
   { path: 'ui', component: UiComponent },
   { path: 'tab-panel', component: TabPanelComponent },
   { path: 'chart', component: ChartComponent },
