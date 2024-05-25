@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 import { IProject } from '../../../model/project.interface';
 
 @Component({
-  selector: 'app-table',
-  templateUrl: './table.component.html',
-  styleUrls: ['./table.component.css']
+  selector: 'app-projeact-details',
+  templateUrl: './projeact-details.component.html',
+  styleUrls: ['./projeact-details.component.css']
 })
-export class TableComponent implements OnInit {
-    projects: IProject[] = [
+export class ProjeactDetailsComponent implements OnInit {
+  projects: IProject[] = [
     {
       id: 1,
       name: 'Website Redesign',
@@ -44,29 +46,29 @@ export class TableComponent implements OnInit {
       status: 3 
     }
   ];
-  listProject: IProject[] = [];
-  
-  constructor() { }
-  
+
+  project: IProject | undefined;
+
+  constructor(private route: ActivatedRoute, private location: Location) { }
 
   ngOnInit() {
-    this.listProject = this.projects;
+    const projectId = +this.route.snapshot.params['id'];
+    this.project = this.projects.find(p => p.id === projectId);
+
+    console.log("Query Param: ", this.route.snapshot.queryParamMap);
+    console.log("Param ID: " + projectId);
   }
 
+  onBack(): void {
+    this.location.back();
+  }
   getStatusText(status: number): string {
-    switch (status) {
-      case 0:
-        return 'Chưa xác nhận';
-      case 1:
-        return 'Đang thực hiện';
-      case 2:
-        return 'Đã hủy';
-      case 3:
-        return 'Đã hoàn thành';
-      default:
-        return 'Không rõ';
+    switch(status) {
+      case 0: return 'Chưa bắt đầu';
+      case 1: return 'Đang tiến hành';
+      case 2: return 'Hoàn thành';
+      case 3: return 'Tạm dừng';
+      default: return 'Không xác định';
     }
   }
-  
-  
 }
