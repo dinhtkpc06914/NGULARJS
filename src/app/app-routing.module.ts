@@ -10,7 +10,7 @@ import {ChartComponent } from './admin/chart/chart.component';
 import {TableComponent } from './admin/table/table.component';
 import {FormComponent } from './admin/form/form.component';
 import {BlankComponent } from './admin/blank/blank.component';
-
+import { ProjeactDetailsComponent } from './admin/projeact-details/projeact-details.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -18,10 +18,11 @@ const routes: Routes = [
   { path: 'ui', component: UiComponent },
   { path: 'tab-panel', component: TabPanelComponent },
   { path: 'chart', component: ChartComponent },
-  { path: 'table', component: TableComponent },
+  { path: 'project', component: TableComponent },
   { path: 'form', component: FormComponent },
   { path: 'blank', component: BlankComponent },
-  
+  { path: 'project/:id', component: ProjeactDetailsComponent },
+  { path: '', redirectTo: '/project', pathMatch: 'full' }, // Đường dẫn mặc định
 ];
 
 @NgModule({

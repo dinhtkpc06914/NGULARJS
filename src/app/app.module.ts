@@ -14,6 +14,7 @@ import { ChartComponent } from './admin/chart/chart.component';
 import { TableComponent } from './admin/table/table.component';
 import { FormComponent } from './admin/form/form.component';
 import { BlankComponent } from './admin/blank/blank.component';
+import { ProjeactDetailsComponent } from './admin/projeact-details/projeact-details.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { BlankComponent } from './admin/blank/blank.component';
     TableComponent,
     FormComponent,
     BlankComponent,
+    ProjeactDetailsComponent,
   ],
   imports: [
     BrowserModule,

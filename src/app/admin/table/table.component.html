@@ -23,6 +23,7 @@
                                                 <th>STT</th>
                                                 <th>Nhóm Thực Hiện</th>
                                                 <th>Trạng Thái</th>
+                                                <th>Chi tiết</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -30,6 +31,7 @@
                                                 <td>{{ project.id }}</td>
                                                 <td>{{ project.teamMembers }}</td>
                                                 <td>{{ getStatusText(project.status) }}</td>
+                                                <td><a [routerLink]="['/project', project.id ]">Chi tiết</a></td>
                                             </tr>
                                         </tbody>
                                     </table>
