@@ -7,7 +7,7 @@ import { ContentComponent } from './admin/content/content.component';
 import { UiComponent } from './admin/ui/ui.component';
 import { TabPanelComponent } from './admin/tab-panel/tab-panel.component';
 import {ChartComponent } from './admin/chart/chart.component';
-import {TableComponent } from './admin/table/table.component';
+import {projectsComponent } from './admin/projects/projects.component';
 import {FormComponent } from './admin/form/form.component';
 import {BlankComponent } from './admin/blank/blank.component';
 import { ProjeactDetailsComponent } from './admin/projeact-details/projeact-details.component';
@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'ui', component: UiComponent },
   { path: 'tab-panel', component: TabPanelComponent },
   { path: 'chart', component: ChartComponent },
-  { path: 'project', component: TableComponent },
+  { path: 'project', component: projectsComponent },
   { path: 'form', component: FormComponent },
   { path: 'blank', component: BlankComponent },
   { path: 'project/:id', component: ProjeactDetailsComponent },

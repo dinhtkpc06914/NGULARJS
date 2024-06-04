@@ -21,16 +21,24 @@
                                         <thead>
                                             <tr>
                                                 <th>STT</th>
-                                                <th>Nhóm Thực Hiện</th>
-                                                <th>Trạng Thái</th>
-                                                <th>Chi tiết</th>
+                                                <th>Name</th>
+                                                <th>Description</th>
+                                                <th>leader id</th>
+                                                <th>Team</th>
+                                                <th>start date</th>
+                                                <th>end_date</th>
+                                                <th>Bugget</th>
+                                                <th>status</th>
+                                                <th>Create at</th>
+                                                <th>update at</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>{{ project.id }}</td>
-                                                <td>{{ project.teamMembers }}</td>
-                                                <td>{{ getStatusText(project.status) }}</td>
+                                            <tr *ngFor="let project of projects; let i = index">
+                                                <td>{{ i + 1 }}</td> <!-- Số thứ tự -->
+                                                <td>{{ projects.id }}</td>
+                                                <td>{{ projects.name }}</td>
+                                               
                                                 <td><a [routerLink]="['/project', project.id ]">Chi tiết</a></td>
                                             </tr>
                                         </tbody>
