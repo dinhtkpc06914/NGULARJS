@@ -10,10 +10,8 @@ const cors = require('cors');
 dotenv.config();
 
 const app = express();
-
 // Middleware to parse JSON
 app.use(express.json());
-
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI, {

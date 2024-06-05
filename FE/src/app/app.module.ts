@@ -14,7 +14,7 @@ import { ChartComponent } from './admin/chart/chart.component';
 import { projectsComponent } from './admin/projects/projects.component';
 import { FormComponent } from './admin/form/form.component';
 import { BlankComponent } from './admin/blank/blank.component';
-import { ProjeactDetailsComponent } from './admin/projeact-details/projeact-details.component';
+import { ProjeactDetailsComponent } from './admin/project-detail/project-detail.component';
 import { ProjectService } from './admin/services/project.service';
 
 @NgModule({
@@ -31,15 +31,18 @@ import { ProjectService } from './admin/services/project.service';
     FormComponent,
     BlankComponent,
     ProjeactDetailsComponent,
-    ProjectService,
-    HttpClientModule
+  
+    
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    ProjectService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

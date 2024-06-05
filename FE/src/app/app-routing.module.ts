@@ -10,7 +10,7 @@ import {ChartComponent } from './admin/chart/chart.component';
 import {projectsComponent } from './admin/projects/projects.component';
 import {FormComponent } from './admin/form/form.component';
 import {BlankComponent } from './admin/blank/blank.component';
-import { ProjeactDetailsComponent } from './admin/projeact-details/projeact-details.component';
+import { ProjeactDetailsComponent } from './admin/project-detail/project-detail.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectService } from '../services/project.service';
 import { IProject } from '../entities/project'; // Đảm bảo đường dẫn đúng
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-projects',
@@ -8,9 +10,9 @@ import { IProject } from '../entities/project'; // Đảm bảo đường dẫn 
   styleUrls: ['./projects.component.css']
 })
 export class projectsComponent implements OnInit {
-  posts: IProject[] = [];
+  projects: IProject[] = [];
 
-  constructor(private projectService: ProjectService) { }
+  constructor(private projectService: ProjectService, private router: Router) { }
 
   ngOnInit() {
     this.getAllProject();
@@ -20,26 +22,14 @@ export class projectsComponent implements OnInit {
     this.projectService.getAllprojects().subscribe(
       data => {
         console.log('Data received:', data); // Debugging line
-        this.posts = data;
+        this.projects = data;
       },
       error => console.error('Lỗi khi lấy bài viết:', error)
     );
   }
 
-  // getStatusText(status: number): string {
-  //   switch (status) {
-  //     case 0:
-  //       return 'Chưa xác nhận';
-  //     case 1:
-  //       return 'Đang thực hiện';
-  //     case 2:
-  //       return 'Đã hủy';
-  //     case 3:
-  //       return 'Đã hoàn thành';
-  //     default:
-  //       return 'Không rõ';
-  //   }
-  // }
-  
+  viewProjectDetail(id: string) {
+    this.router.navigate(['/project', id]);
+  }
   
 }

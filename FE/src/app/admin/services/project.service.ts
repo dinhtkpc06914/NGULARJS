@@ -8,8 +8,8 @@ import { IProject } from '../entities/project'; // Đảm bảo đường dẫn 
 
 @Injectable()
 export class ProjectService {
-  private url = 'http://localhost:3000/api/users';
-
+  private url = 'http://localhost:3000/api/projects';
+  private url2 = 'http://localhost:3000/api/project';
   constructor(private http: HttpClient) { }
 
   getAllprojects(): Observable<IProject[]> {
@@ -17,7 +17,13 @@ export class ProjectService {
       .map(response => response as IProject[])
       .catch(this.handleError);
   }
-
+  getProjectById(id: string): Observable<IProject> {
+    if (!id) {
+      return Observable.throw('ID không hợp lệ');
+    }
+    return this.http.get<IProject>(`${this.url2}/${id}`)
+      .catch(this.handleError);
+  }
   createproject(project: IProject): Observable<IProject> {
     return this.http.project<IProject>(this.url, project)
       .catch(this.handleError);
