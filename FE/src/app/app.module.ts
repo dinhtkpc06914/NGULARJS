@@ -1,3 +1,4 @@
+import { usersComponent } from './admin/users/user.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -8,7 +9,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './admin/home/home.component';
 import { FooterComponent } from './admin/footer/footer.component';
 import { ContentComponent } from './admin/content/content.component';
-import { UiComponent } from './admin/ui/ui.component';
 import { TabPanelComponent } from './admin/tab-panel/tab-panel.component';
 import { ChartComponent } from './admin/chart/chart.component';
 import { projectsComponent } from './admin/projects/projects.component';
@@ -18,6 +18,7 @@ import { ProjeactDetailsComponent } from './admin/project-detail/project-detail.
 import { ProjectService } from './admin/services/project.service';
 import { TaskComponent } from './admin/task/task.component';
 import { TaskService } from './admin/services/task.service'; // Đảm bảo đường dẫn đúng
+import { UsersService } from './admin/services/user.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { TaskService } from './admin/services/task.service'; // Đảm bảo đ�
     HomeComponent,
     FooterComponent,
     ContentComponent,
-    UiComponent,
+    usersComponent,
     TabPanelComponent,
     ChartComponent,
     projectsComponent,
@@ -43,7 +44,8 @@ import { TaskService } from './admin/services/task.service'; // Đảm bảo đ�
   ],
   providers: [
     ProjectService,
-    TaskService // Giữ TaskService ở phần providers
+    TaskService,
+    UsersService
   ],
   bootstrap: [AppComponent]
 })
