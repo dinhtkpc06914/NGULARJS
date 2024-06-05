@@ -1,3 +1,4 @@
+import { usersComponent } from './admin/users/user.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -8,7 +9,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './admin/home/home.component';
 import { FooterComponent } from './admin/footer/footer.component';
 import { ContentComponent } from './admin/content/content.component';
-import { UiComponent } from './admin/ui/ui.component';
 import { TabPanelComponent } from './admin/tab-panel/tab-panel.component';
 import { ChartComponent } from './admin/chart/chart.component';
 import { projectsComponent } from './admin/projects/projects.component';
@@ -16,7 +16,7 @@ import { FormComponent } from './admin/form/form.component';
 import { BlankComponent } from './admin/blank/blank.component';
 import { ProjeactDetailsComponent } from './admin/project-detail/project-detail.component';
 import { ProjectService } from './admin/services/project.service';
-
+import { UsersService } from './admin/services/user.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +24,7 @@ import { ProjectService } from './admin/services/project.service';
     HomeComponent,
     FooterComponent,
     ContentComponent,
-    UiComponent,
+    usersComponent,
     TabPanelComponent,
     ChartComponent,
     projectsComponent,
@@ -41,7 +41,8 @@ import { ProjectService } from './admin/services/project.service';
     HttpClientModule
   ],
   providers: [
-    ProjectService
+    ProjectService,
+    UsersService
   ],
   bootstrap: [AppComponent]
 })
