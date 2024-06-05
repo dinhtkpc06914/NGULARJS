@@ -16,6 +16,8 @@ import { FormComponent } from './admin/form/form.component';
 import { BlankComponent } from './admin/blank/blank.component';
 import { ProjeactDetailsComponent } from './admin/project-detail/project-detail.component';
 import { ProjectService } from './admin/services/project.service';
+import { TaskComponent } from './admin/task/task.component';
+import { TaskService } from './admin/services/task.service'; // Đảm bảo đường dẫn đúng
 
 @NgModule({
   declarations: [
@@ -31,8 +33,7 @@ import { ProjectService } from './admin/services/project.service';
     FormComponent,
     BlankComponent,
     ProjeactDetailsComponent,
-  
-    
+    TaskComponent, // Giữ TaskComponent ở phần declarations
   ],
   imports: [
     BrowserModule,
@@ -41,8 +42,10 @@ import { ProjectService } from './admin/services/project.service';
     HttpClientModule
   ],
   providers: [
-    ProjectService
+    ProjectService,
+    TaskService // Giữ TaskService ở phần providers
   ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
