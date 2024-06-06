@@ -45,7 +45,8 @@ import { UsersService } from './admin/services/user.service';
   providers: [
     ProjectService,
     TaskService,
-    UsersService
+    UsersService,
+    
   ],
   bootstrap: [AppComponent]
 })

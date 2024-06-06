@@ -13,8 +13,8 @@ import {BlankComponent } from './admin/blank/blank.component';
 import { ProjeactDetailsComponent } from './admin/project-detail/project-detail.component';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
-  { path: '', component: ContentComponent },
+  { path: '', component: HomeComponent },
+
   { path: 'user', component: usersComponent  },
   { path: 'tab-panel', component: TabPanelComponent },
   { path: 'chart', component: ChartComponent },
