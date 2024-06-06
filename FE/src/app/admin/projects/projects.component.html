@@ -70,7 +70,7 @@
                                                     <td>{{ project.created_at }}</td>
                                                     <td>{{ project.updated_at }}</td>
                                                     <td>
-                                                        <a [routerLink]="['/project', project._id]">Chi tiết</a>
+                                                        <a [routerLink]="['/project', project._id]" class="btn btn-danger">Chi tiết</a>
                                                         <button (click)="deleteProject(project._id)" class="btn btn-danger">Xóa</button>
                                                     </td>
                                                 </tr>
