@@ -25,6 +25,8 @@ export class FormTaskComponent implements OnInit {
     due_date: ''
   };
 
+  editingTask: boolean = false;
+
   constructor(private taskService: TaskService) {}
 
   ngOnInit() {}
@@ -33,11 +35,19 @@ export class FormTaskComponent implements OnInit {
     this.taskService.createtask(this.task).subscribe(
       response => {
         console.log('Task added successfully', response);
-        // Thêm hành động cần thiết sau khi thêm task thành công, như điều hướng hoặc hiển thị thông báo
+        this.task = {
+          project_id: '',
+          name: '',
+          description: '',
+          assignee_id: '',
+          status: '',
+          priority: '',
+          start_date: '',
+          due_date: ''
+        };
       },
       error => {
         console.error('Error adding task', error);
-        // Thêm xử lý lỗi nếu cần
       }
     );
   }
