@@ -10,6 +10,16 @@ import { Router } from '@angular/router';
 })
 export class TaskComponent implements OnInit {
   tasks: ITask[] = [];
+  newTask: ITask = {
+    project_id: '',
+    name: '',
+    description: '',
+    assignee_id: '',
+    status: '',
+    priority: '',
+    start_date: '',
+    due_date: ''
+  };
 
   constructor(private taskService: TaskService, private router: Router) { }
 
@@ -20,21 +30,63 @@ export class TaskComponent implements OnInit {
   getAlltasks() {
     this.taskService.getAlltasks().subscribe(
       data => {
-        console.log('Data received:', data); // Debugging line
+        console.log('Data received:', data);
         this.tasks = data;
       },
       error => console.error('Lỗi khi lấy bài viết:', error)
     );
   }
 
+  // deletetask(id: string) {
+  //   this.taskService.deletetask(id).subscribe(
+  //     () => {
+  //       console.log('Task deleted successfully');
+  //       this.getAlltasks();
+  //     },
+  //     error => console.error('Error deleting task:', error)
+  //   );
+  // }
+
   deletetask(id: string) {
-    this.taskService.deletetask(id).subscribe(
+    console.log('Deleting post with ID:', id);
+    if (id) {
+      this.taskService.deletetask(id).subscribe(
+        () => {
+          this.getAlltasks();
+          alert('Xóa thành công!');
+        },
+        error => {
+          console.error('Lỗi khi xoá Task:', error);
+        }
+      );
+    } else {
+      console.warn('ID Task không hợp lệ!');
+    }
+  }
+
+  confirmDelete(id: string) {
+    if (confirm('Bạn có chắc xóa không?')) {
+      this.deletetask(id);
+    }
+  }
+
+  createtask() {
+    this.taskService.createtask(this.newTask).subscribe(
       () => {
-        console.log('Task deleted successfully');
-        // Refresh the task list
+        console.log('Task created successfully');
         this.getAlltasks();
+        this.newTask = {
+          project_id: '',
+          name: '',
+          description: '',
+          assignee_id: '',
+          status: '',
+          priority: '',
+          start_date: '',
+          due_date: ''
+        };
       },
-      error => console.error('Error deleting task:', error)
+      error => console.error('Error creating task:', error)
     );
   }
 }
