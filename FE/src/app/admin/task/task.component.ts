@@ -16,7 +16,7 @@ export class TaskComponent implements OnInit {
   ngOnInit() {
     this.getAlltasks();
   }
-
+  
   getAlltasks() {
     this.taskService.getAlltasks().subscribe(
       data => {
@@ -24,6 +24,17 @@ export class TaskComponent implements OnInit {
         this.tasks = data;
       },
       error => console.error('Lỗi khi lấy bài viết:', error)
+    );
+  }
+
+  deletetask(id: string) {
+    this.taskService.deletetask(id).subscribe(
+      () => {
+        console.log('Task deleted successfully');
+        // Refresh the task list
+        this.getAlltasks();
+      },
+      error => console.error('Error deleting task:', error)
     );
   }
 }

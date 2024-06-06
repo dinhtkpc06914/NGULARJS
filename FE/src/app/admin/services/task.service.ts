@@ -31,7 +31,7 @@ export class TaskService {
 
   deletetask(id: string): Observable<void> {
     console.log(`Xóa task với ID: ${id}`); 
-    return this.http.delete<void>(`${this.url}/${id}`)
+    return this.http.delete<void>(`${this.url2}/${id}`)
       .catch(this.handleError);
   }
   

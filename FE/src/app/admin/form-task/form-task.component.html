@@ -1,7 +1,6 @@
 <app-header></app-header>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,16 +14,14 @@
     <!-- FONT CHỮ GOOGLE-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 </head>
-
 <body>
     <div id="wrapper">
-        <!-- PHẦN BÊN CẠNH THANH NAVIGATION  -->
         <div id="page-wrapper">
             <div id="page-inner">
                 <div class="col-md-12">
                     <h2>Thêm Task</h2>
                 </div>
-                <form (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm">
+                <form (ngSubmit)="onSubmit()" #taskForm="ngForm">
                     <div class="form-group">
                         <label for="project_id">Project ID</label>
                         <input type="text" class="form-control" id="project_id" required [(ngModel)]="task.project_id" name="project_id">
@@ -58,38 +55,18 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="start_date">Ngày Bắt đầu</label>
+                        <label for="start_date">Ngày Bắt Đầu</label>
                         <input type="date" class="form-control" id="start_date" required [(ngModel)]="task.start_date" name="start_date">
                     </div>
                     <div class="form-group">
-                        <label for="due_date">Ngày Kết thúc</label>
+                        <label for="due_date">Ngày Hoàn Thành</label>
                         <input type="date" class="form-control" id="due_date" required [(ngModel)]="task.due_date" name="due_date">
                     </div>
-                    <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Thêm mới</button>
+                    <button type="submit" class="btn btn-primary" [disabled]="taskForm.invalid">Thêm mới</button>
                 </form>
-
-                <!-- HÀNG DỮ LIỆU  -->
-                <hr />
-                <div class="row">
-                    <div class="col-md-12">
-                        <!-- CÁC YẾU TỐ CỦA FORM -->
-
-                        <!-- Kết thúc Các Yếu tố của Form -->
-                    </div>
-                </div>
-                <!-- HÀNG DỮ LIỆU  -->
-                <div class="row">
-                    <div class="col-md-12">
-
-                    </div>
-                </div>
-                <!-- HÀNG DỮ LIỆU  -->
             </div>
-            <!-- Kết thúc TRANG NỘI BỘ  -->
         </div>
-        <!-- Kết thúc BỌC TRANG  -->
     </div>
-    <!-- Kết thúc BỌC  -->
     <!-- SCRIPTS - Ở DƯỚI ĐỂ GIẢM THỜI GIAN TẢI-->
     <!-- JQUERY SCRIPTS -->
     <script src="../../assets/admin/js/jquery-1.10.2.js"></script>
@@ -100,5 +77,4 @@
     <!-- SCRIPTS TÙY CHỈNH -->
     <script src="../../assets/admin/js/custom.js"></script>
 </body>
-
 </html>
