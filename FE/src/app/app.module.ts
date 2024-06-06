@@ -13,14 +13,13 @@ import { ChartComponent } from './admin/chart/chart.component';
 import { projectsComponent } from './admin/projects/projects.component';
 import { FormComponent } from './admin/form/form.component';
 import { BlankComponent } from './admin/blank/blank.component';
-import { ProjeactDetailsComponent } from './admin/project-detail/project-detail.component';
-import { TaskComponent } from './admin/task/task.component';
+import { ProjectDetailsComponent } from './admin/project-detail/project-detail.component';
 import { ProjectService } from './admin/services/project.service';
+import { TaskComponent } from './admin/task/task.component';
 import { TaskService } from './admin/services/task.service';
 import { UsersService } from './admin/services/user.service';
+import { FormTaskComponent } from './admin/form-task/form-task.component';
 import { usersComponent } from './admin/users/user.component';
-import { APP_BASE_HREF } from '@angular/common';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,8 +33,11 @@ import { APP_BASE_HREF } from '@angular/common';
     projectsComponent,
     FormComponent,
     BlankComponent,
-    ProjeactDetailsComponent,
-    TaskComponent
+
+    ProjectDetailsComponent,
+    FormTaskComponent,
+    TaskComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -47,7 +49,7 @@ import { APP_BASE_HREF } from '@angular/common';
     ProjectService,
     TaskService,
     UsersService,
-    { provide: APP_BASE_HREF, useValue: '/' } // Thêm dòng này
+  
   ],
   bootstrap: [AppComponent]
 })
