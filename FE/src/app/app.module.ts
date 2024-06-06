@@ -20,6 +20,7 @@ import { TaskService } from './admin/services/task.service';
 import { UsersService } from './admin/services/user.service';
 import { FormTaskComponent } from './admin/form-task/form-task.component';
 import { usersComponent } from './admin/users/user.component';
+import { APP_BASE_HREF } from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +50,7 @@ import { usersComponent } from './admin/users/user.component';
     ProjectService,
     TaskService,
     UsersService,
-  
+    { provide: APP_BASE_HREF, useValue: '/' } // Thêm dòng này
   ],
   bootstrap: [AppComponent]
 })
