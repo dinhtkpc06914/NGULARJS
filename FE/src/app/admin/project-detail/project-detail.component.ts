@@ -9,7 +9,7 @@ import { Location } from '@angular/common';
   templateUrl: './project-detail.component.html',
   styleUrls: ['./project-detail.component.css']
 })
-export class ProjeactDetailsComponent implements OnInit {
+export class ProjectDetailsComponent implements OnInit {
   project: IProject;
 
   constructor(private route: ActivatedRoute, private projectService: ProjectService, private location: Location) { }
