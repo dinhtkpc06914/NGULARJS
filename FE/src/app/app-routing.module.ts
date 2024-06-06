@@ -5,7 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './admin/home/home.component';
 import { TabPanelComponent } from './admin/tab-panel/tab-panel.component';
 import {ChartComponent } from './admin/chart/chart.component';
-import {projectsComponent } from './admin/projects/projects.component';
+import { ProjectsComponent } from './admin/projects/projects.component';
 import { TaskComponent } from './admin/task/task.component';
 import {FormComponent } from './admin/form/form.component';
 import {BlankComponent } from './admin/blank/blank.component';
@@ -17,7 +17,7 @@ const routes: Routes = [
   { path: 'user', component: usersComponent  },
   { path: 'tab-panel', component: TabPanelComponent },
   { path: 'chart', component: ChartComponent },
-  { path: 'project', component: projectsComponent },
+  { path: 'project', component: ProjectsComponent },
   { path: 'task', component: TaskComponent},
   { path: 'form-task', component: FormTaskComponent},
   { path: 'form', component: FormComponent },

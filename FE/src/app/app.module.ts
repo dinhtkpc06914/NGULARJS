@@ -10,7 +10,7 @@ import { FooterComponent } from './admin/footer/footer.component';
 import { ContentComponent } from './admin/content/content.component';
 import { TabPanelComponent } from './admin/tab-panel/tab-panel.component';
 import { ChartComponent } from './admin/chart/chart.component';
-import { projectsComponent } from './admin/projects/projects.component';
+import { ProjectsComponent } from './admin/projects/projects.component';
 import { FormComponent } from './admin/form/form.component';
 import { BlankComponent } from './admin/blank/blank.component';
 import { ProjectDetailsComponent } from './admin/project-detail/project-detail.component';
@@ -31,7 +31,7 @@ import { APP_BASE_HREF } from '@angular/common';
     usersComponent,
     TabPanelComponent,
     ChartComponent,
-    projectsComponent,
+    ProjectsComponent,
     FormComponent,
     BlankComponent,
 
