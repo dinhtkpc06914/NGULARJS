@@ -9,7 +9,7 @@ import { ITask } from '../entities/task';
 @Injectable()
 export class TaskService {
   private url = 'http://localhost:3000/api/tasks';
-  private url2 = 'http://localhost:3000/api/task';
+
   constructor(private http: HttpClient) { }
 
   getAlltasks(): Observable<ITask[]> {
@@ -17,13 +17,15 @@ export class TaskService {
       .map(response => response as ITask[])
       .catch(this.handleError);
   }
+
   getTaskById(id: string): Observable<ITask> {
     if (!id) {
       return Observable.throw('ID không hợp lệ');
     }
-    return this.http.get<ITask>(`${this.url2}/${id}`)
+    return this.http.get<ITask>(`${this.url}/${id}`)
       .catch(this.handleError);
   }
+
   createtask(task: ITask): Observable<ITask> {
     return this.http.post<ITask>(this.url, task)
       .catch(this.handleError);
@@ -31,17 +33,16 @@ export class TaskService {
 
   deletetask(id: string): Observable<void> {
     console.log(`Xóa task với ID: ${id}`); 
-    return this.http.delete<void>(`${this.url2}/${id}`)
+    return this.http.delete<void>(`${this.url}/${id}`)
       .catch(this.handleError);
   }
-  
+
   updatetask(task: ITask): Observable<ITask> {
-    if (task._id && task._id) {
+    if (task._id) {
       const taskId = task._id;
       return this.http.put<ITask>(`${this.url}/${taskId}`, task)
         .catch(this.handleError);
     } else {
-      // Xử lý khi _id không hợp lệ
       console.error('ID task không hợp lệ!');
       return Observable.throw('ID task không hợp lệ!');
     }
