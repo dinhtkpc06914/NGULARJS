@@ -20,6 +20,8 @@ import { TaskService } from './admin/services/task.service';
 import { UsersService } from './admin/services/user.service';
 import { FormTaskComponent } from './admin/form-task/form-task.component';
 import { usersComponent } from './admin/users/user.component';
+import { FormUserComponent } from './admin/form-user/form-user.component';
+
 
 @NgModule({
   declarations: [
@@ -37,6 +39,7 @@ import { usersComponent } from './admin/users/user.component';
     ProjectDetailsComponent,
     FormTaskComponent,
     TaskComponent,
+    FormUserComponent,
   ],
   imports: [
     BrowserModule,
