@@ -5,17 +5,12 @@ import { HomeComponent } from './admin/home/home.component';
 import { TabPanelComponent } from './admin/tab-panel/tab-panel.component';
 import { usersComponent } from './admin/users/user.component';
 import {ChartComponent } from './admin/chart/chart.component';
-
 import { ProjectsComponent } from './admin/projects/projects.component';
-
 import {TaskComponent } from './admin/task/task.component';
-
 import {FormComponent } from './admin/form/form.component';
 import {BlankComponent } from './admin/blank/blank.component';
 import { ProjectDetailsComponent } from './admin/project-detail/project-detail.component';
 import { FormTaskComponent } from './admin/form-task/form-task.component';
-
-
 import { FormUserComponent } from './admin/form-user/form-user.component';
 
 

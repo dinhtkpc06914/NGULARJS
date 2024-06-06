@@ -26,7 +26,7 @@ export class UsersService {
       .catch(this.handleError);
   }
   createuser(user: IUsers): Observable<IUsers> {
-    return this.http.post<IUsers>(this.url, user)
+    return this.http.project<IUsers>(this.url, user)
       .catch(this.handleError);
   }
 
