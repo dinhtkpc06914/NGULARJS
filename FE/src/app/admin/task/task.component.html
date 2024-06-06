@@ -49,6 +49,7 @@
                                                 <th>Status</th>
                                                 <th>Created At</th>
                                                 <th>Updated At</th>
+                                                <th>Chức Năng</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -61,6 +62,9 @@
                                                 <td>{{ task.status }}</td>
                                                 <td>{{ task.created_at }}</td>
                                                 <td>{{ task.updated_at }}</td>
+                                                <td>
+                                                    <button (click)="deletetask(task._id)">Xóa</button>
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>

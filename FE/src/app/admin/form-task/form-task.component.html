@@ -1,4 +1,6 @@
 
+
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -7,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mẫu Quản trị Bootstrap Miễn phí: Binary Admin</title>
     <!-- STYLES CỦA BOOTSTRAP-->
+
     <link href="assets/admin/css/bootstrap.css" rel="stylesheet" />
     <!-- STYLES CỦA FONTAWESOME-->
     <link href="assets/admin/css/font-awesome.css" rel="stylesheet" />
@@ -19,13 +22,15 @@
 <body>
     <app-header></app-header>
     <div id="wrapper">
-        <!-- PHẦN BÊN CẠNH THANH NAVIGATION  -->
+
         <div id="page-wrapper">
             <div id="page-inner">
                 <div class="col-md-12">
                     <h2>Thêm Task</h2>
                 </div>
+
                 <form (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm">
+
                     <div class="form-group">
                         <label for="project_id">Project ID</label>
                         <input type="text" class="form-control" id="project_id" required [(ngModel)]="task.project_id" name="project_id">
@@ -59,6 +64,7 @@
                         </select>
                     </div>
                     <div class="form-group">
+
                         <label for="start_date">Ngày Bắt đầu</label>
                         <input type="date" class="form-control" id="start_date" required [(ngModel)]="task.start_date" name="start_date">
                     </div>

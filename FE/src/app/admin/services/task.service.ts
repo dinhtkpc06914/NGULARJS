@@ -25,13 +25,17 @@ export class TaskService {
       .catch(this.handleError);
   }
   createtask(task: ITask): Observable<ITask> {
+
     return this.http.project<ITask>(this.url, task)
+
       .catch(this.handleError);
   }
 
   deletetask(id: string): Observable<void> {
     console.log(`Xóa task với ID: ${id}`); 
+
     return this.http.delete<void>(`${this.url}/${id}`)
+
       .catch(this.handleError);
   }
   
