@@ -31,6 +31,12 @@ export class usersComponent implements OnInit {
   viewUserDetail(id: string) {
     this.router.navigate(['/user', id]);
   }
+  confirmDelete(id: string) {
+    if (confirm('Bạn có chắc xóa không?')) {
+      this.deleteuser(id);
+    }
+  }
+  
 
   deleteuser(id: string) {
     this.userService.deleteuser(id).subscribe(
