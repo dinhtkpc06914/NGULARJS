@@ -15,7 +15,7 @@ import { ProjeactDetailsComponent } from './admin/project-detail/project-detail.
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: '', component: ContentComponent },
-  { path: 'user', component: usersComponent  },
+  { path: 'user', component: UsersComponent  },
   { path: 'tab-panel', component: TabPanelComponent },
   { path: 'chart', component: ChartComponent },
   { path: 'project', component: projectsComponent },
