@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+
+import { NgForm } from '@angular/forms'
+
 import { TaskService } from '../services/task.service';
 import { ITask } from '../entities/task';
+
 
 @Component({
   selector: 'app-form-task',
@@ -8,6 +12,7 @@ import { ITask } from '../entities/task';
   styleUrls: ['./form-task.component.css']
 })
 export class FormTaskComponent implements OnInit {
+
 
   task: ITask = {
     project_id: '',
@@ -46,4 +51,5 @@ export class FormTaskComponent implements OnInit {
       }
     );
   }
+
 }

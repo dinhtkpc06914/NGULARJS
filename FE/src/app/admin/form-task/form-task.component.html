@@ -1,27 +1,33 @@
-<app-header></app-header>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mẫu Quản trị Bootstrap Miễn phí: Binary Admin</title>
     <!-- STYLES CỦA BOOTSTRAP-->
-    <link href="../../assets/admin/css/bootstrap.css" rel="stylesheet" />
+
+    <link href="assets/admin/css/bootstrap.css" rel="stylesheet" />
     <!-- STYLES CỦA FONTAWESOME-->
-    <link href="../../assets/admin/css/font-awesome.css" rel="stylesheet" />
+    <link href="assets/admin/css/font-awesome.css" rel="stylesheet" />
     <!-- STYLES TÙY CHỈNH-->
-    <link href="../../assets/admin/css/custom.css" rel="stylesheet" />
+    <link href="assets/admin/css/custom.css" rel="stylesheet" />
     <!-- FONT CHỮ GOOGLE-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 </head>
+
 <body>
+
     <div id="wrapper">
+
         <div id="page-wrapper">
             <div id="page-inner">
                 <div class="col-md-12">
                     <h2>Thêm Task</h2>
                 </div>
-                <form (ngSubmit)="onSubmit()" #taskForm="ngForm">
+
+                <form (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm">
+
                     <div class="form-group">
                       <label for="project_id">Project ID</label>
                       <input type="text" class="form-control" id="project_id" required [(ngModel)]="task.project_id" name="project_id">
@@ -64,17 +70,22 @@
                     </div>
                     <button type="submit" class="btn btn-primary" [disabled]="taskForm.invalid">Thêm mới</button>
                   </form>
+
             </div>
+            <!-- Kết thúc TRANG NỘI BỘ  -->
         </div>
+        <!-- Kết thúc BỌC TRANG  -->
     </div>
+    <!-- Kết thúc BỌC  -->
     <!-- SCRIPTS - Ở DƯỚI ĐỂ GIẢM THỜI GIAN TẢI-->
     <!-- JQUERY SCRIPTS -->
-    <script src="../../assets/admin/js/jquery-1.10.2.js"></script>
+    <script src="assets/admin/js/jquery-1.10.2.js"></script>
     <!-- BOOTSTRAP SCRIPTS -->
-    <script src="../../assets/admin/js/bootstrap.min.js"></script>
+    <script src="assets/admin/js/bootstrap.min.js"></script>
     <!-- SCRIPTS CỦA METISMENU -->
-    <script src="../../assets/admin/js/jquery.metisMenu.js"></script>
+    <script src="assets/admin/js/jquery.metisMenu.js"></script>
     <!-- SCRIPTS TÙY CHỈNH -->
-    <script src="../../assets/admin/js/custom.js"></script>
+    <script src="assets/admin/js/custom.js"></script>
 </body>
+
 </html>

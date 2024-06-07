@@ -16,10 +16,10 @@ export class usersComponent implements OnInit {
   constructor(private userService: UsersService, private router: Router) { }
 
   ngOnInit() {
-    this.getAllProject();
+    this.getAllusers();
   }
 
-  getAllProject() {
+  getAllusers() {
     this.userService.getAllusers().subscribe(
       data => {
         console.log('Data received:', data); // Debugging line
@@ -28,9 +28,24 @@ export class usersComponent implements OnInit {
       error => console.error('Lỗi khi lấy bài viết:', error)
     );
   }
-
   viewUserDetail(id: string) {
-    this.router.navigate(['/project', id]);
+    this.router.navigate(['/user', id]);
+  }
+  confirmDelete(id: string) {
+    if (confirm('Bạn có chắc xóa không?')) {
+      this.deleteuser(id);
+    }
   }
   
+
+  deleteuser(id: string) {
+    this.userService.deleteuser(id).subscribe(
+      () => {
+        console.log('Task deleted successfully');
+        // Refresh the task list
+        this.getAllusers();
+      },
+      error => console.error('Error deleting task:', error)
+    );
+  }
 }

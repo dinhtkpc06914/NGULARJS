@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -28,7 +29,7 @@
             </button>
             <a class="navbar-brand" href="">Scam Cần Thơ</a>
         </div>
-        <div style="color: white; padding: 15px 50px 5px 50px; float: right; font-size: 16px;"> Lần truy cập cuối: 30 Tháng Năm 2015 &nbsp; <a href="#" class="btn btn-danger square-btn-adjust">Đăng xuất</a> </div>
+        <div style="color: white; padding: 15px 50px 5px 50px; float: right; font-size: 16px;"> Lần truy cập cuối: 30 Tháng Năm 2015 &nbsp; <a (click)="logout()" href="#" class="btn btn-danger square-btn-adjust">Đăng xuất</a> </div>
     </nav>
     <!-- /. NAV TOP  -->
     <nav class="navbar-default navbar-side" role="navigation">
@@ -63,6 +64,13 @@
 
                 <li>
                     <a href="/form-task"><i class="fa fa-edit fa-3x"></i> Thêm Task</a>
+
+
+                </li>
+
+                <li>
+                    <a href="/form-user"><i class="fa fa-edit fa-3x"></i> Thêm Khách Hàng</a>
+
                 </li>
     
             </ul>
@@ -84,3 +92,4 @@
 </body>
 
 </html>
+
