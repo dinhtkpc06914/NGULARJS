@@ -14,7 +14,7 @@ export class FormUserComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit(contactForm:NgForm ) {
-    console.log(contactForm.value ) ;
-    }
+  onSubmit(contactForm: NgForm) {
+    console.log(contactForm.value);
+  }
 }
