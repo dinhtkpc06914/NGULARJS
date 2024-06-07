@@ -31,7 +31,7 @@ export class ProjectService {
 
   deleteproject(id: string): Observable<void> {
     console.log(`Deleting project with ID: ${id}`); // Log để kiểm tra
-    return this.http.delete<void>(`${this.url}/${id}`)
+    return this.http.delete<void>(`${this.url2}/${id}`)
       .catch(this.handleError);
   }
   

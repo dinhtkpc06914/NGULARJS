@@ -5,7 +5,7 @@ const projectRoutes = require('./routes/projectRoutes');
 const taskRoutes = require('./routes/taskRoutes')
 const dotenv = require('dotenv');
 const cors = require('cors');
-
+const authRoutes = require('./routes/auth');
 // Load environment variables from .env file
 dotenv.config();
 
@@ -30,7 +30,7 @@ app.use(cors());
 app.use('/api', userRoutes);
 app.use('/api', projectRoutes);
 app.use('/api', taskRoutes);
-
+app.use('/api', authRoutes);
 // Start the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
