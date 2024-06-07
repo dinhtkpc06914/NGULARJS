@@ -7,7 +7,6 @@ import { HeaderComponent } from './admin/header/header.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './admin/home/home.component';
 import { FooterComponent } from './admin/footer/footer.component';
-import { ContentComponent } from './admin/content/content.component';
 import { TabPanelComponent } from './admin/tab-panel/tab-panel.component';
 import { ChartComponent } from './admin/chart/chart.component';
 import { ProjectsComponent } from './admin/projects/projects.component';
@@ -30,7 +29,6 @@ import { AuthModule } from './admin/auth/auth.module';
     HeaderComponent,
     HomeComponent,
     FooterComponent,
-    ContentComponent,
     usersComponent,
     TabPanelComponent,
     ChartComponent,

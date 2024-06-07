@@ -17,7 +17,6 @@ export class RegisterComponent implements OnInit {
   errorMessage: string;
 
   constructor(private authService: AuthService, private router: Router) { }
-
   ngOnInit() {
   }
   register() {

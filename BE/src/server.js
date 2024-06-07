@@ -2,22 +2,16 @@ const express = require('express');
 const mongoose = require('mongoose');
 const userRoutes = require('./routes/userRoutes');
 const projectRoutes = require('./routes/projectRoutes');
-const taskRoutes = require('./routes/taskRoutes');
-const authRoutes = require('./routes/auth');
+const taskRoutes = require('./routes/taskRoutes')
 const dotenv = require('dotenv');
 const cors = require('cors');
-
-
-
-
+const authRoutes = require('./routes/auth');
 // Load environment variables from .env file
 dotenv.config();
 
 const app = express();
-
 // Middleware to parse JSON
 app.use(express.json());
-
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI, {
@@ -37,7 +31,6 @@ app.use('/api', userRoutes);
 app.use('/api', projectRoutes);
 app.use('/api', taskRoutes);
 app.use('/api', authRoutes);
-
 // Start the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
