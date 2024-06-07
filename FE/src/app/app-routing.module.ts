@@ -6,24 +6,19 @@ import { TabPanelComponent } from './admin/tab-panel/tab-panel.component';
 import { usersComponent } from './admin/users/user.component';
 import { ChartComponent } from './admin/chart/chart.component';
 import { ProjectsComponent } from './admin/projects/projects.component';
-import { TaskComponent } from './admin/task/task.component';
 import { FormComponent } from './admin/form/form.component';
 import { BlankComponent } from './admin/blank/blank.component';
 import { ProjectDetailsComponent } from './admin/project-detail/project-detail.component';
-import { FormTaskComponent } from './admin/form-task/form-task.component';
 import { FormUserComponent } from './admin/form-user/form-user.component';
 import { AuthGuard } from './admin/auth/auth.guard';
-
+import { TaskRoutingModule } from './admin/tasks/task-routing.module';
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuard] }, // Áp dụng AuthGuard cho đường dẫn mặc định
   { path: 'user', component: usersComponent },
   { path: 'tab-panel', component: TabPanelComponent },
   { path: 'chart', component: ChartComponent },
   { path: 'project', component: ProjectsComponent },
-  { path: 'task', component: TaskComponent },
-  { path: 'form-task', component: FormTaskComponent },
   { path: 'form', component: FormComponent },
-  { path: 'form-task', component: FormTaskComponent },
   { path: 'form-user', component: FormUserComponent },
   { path: 'blank', component: BlankComponent },
   { path: 'project/:id', component: ProjectDetailsComponent },
@@ -33,6 +28,7 @@ const routes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
+    TaskRoutingModule,
     RouterModule.forRoot(routes)
   ],
   exports: [RouterModule],

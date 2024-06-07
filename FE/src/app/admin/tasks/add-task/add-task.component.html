@@ -15,19 +15,14 @@
     <!-- FONT CHỮ GOOGLE-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 </head>
-
 <body>
-
     <div id="wrapper">
-
         <div id="page-wrapper">
             <div id="page-inner">
                 <div class="col-md-12">
                     <h2>Thêm Task</h2>
                 </div>
-
                 <form (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm">
-
                     <div class="form-group">
                       <label for="project_id">Project ID</label>
                       <input type="text" class="form-control" id="project_id" required [(ngModel)]="task.project_id" name="project_id">

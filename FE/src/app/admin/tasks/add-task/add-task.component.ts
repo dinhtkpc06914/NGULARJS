@@ -2,16 +2,16 @@ import { Component, OnInit } from '@angular/core';
 
 import { NgForm } from '@angular/forms'
 
-import { TaskService } from '../services/task.service';
-import { ITask } from '../entities/task';
+import { TaskService } from '../../services/task.service';
+import { ITask } from '../../entities/task';
 
 
 @Component({
-  selector: 'app-form-task',
-  templateUrl: './form-task.component.html',
-  styleUrls: ['./form-task.component.css']
+  selector: 'app-add-task',
+  templateUrl: './add-task.component.html',
+  styleUrls: ['./add-task.component.css']
 })
-export class FormTaskComponent implements OnInit {
+export class AddTaskComponent implements OnInit {
 
 
   task: ITask = {

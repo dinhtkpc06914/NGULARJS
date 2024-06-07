@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { TaskService } from '../services/task.service';
-import { ITask } from '../entities/task'; 
+import { TaskService } from '../../services/task.service';
+import { ITask } from '../../entities/task'; 
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-task',
-  templateUrl: './task.component.html',
-  styleUrls: ['./task.component.css']
+  selector: 'app-list-task',
+  templateUrl: './list-task.component.html',
+  styleUrls: ['./list-task.component.css']
 })
-export class TaskComponent implements OnInit {
+export class ListtaskComponent implements OnInit {
   tasks: ITask[] = [];
   newTask: ITask = {
     project_id: '',
@@ -36,16 +36,6 @@ export class TaskComponent implements OnInit {
       error => console.error('Lỗi khi lấy bài viết:', error)
     );
   }
-
-  // deletetask(id: string) {
-  //   this.taskService.deletetask(id).subscribe(
-  //     () => {
-  //       console.log('Task deleted successfully');
-  //       this.getAlltasks();
-  //     },
-  //     error => console.error('Error deleting task:', error)
-  //   );
-  // }
 
   deletetask(id: string) {
     console.log('Deleting post with ID:', id);

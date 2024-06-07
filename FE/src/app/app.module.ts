@@ -14,15 +14,13 @@ import { FormComponent } from './admin/form/form.component';
 import { BlankComponent } from './admin/blank/blank.component';
 import { ProjectDetailsComponent } from './admin/project-detail/project-detail.component';
 import { ProjectService } from './admin/services/project.service';
-import { TaskComponent } from './admin/task/task.component';
 import { TaskService } from './admin/services/task.service';
 import { UsersService } from './admin/services/user.service';
 import { APP_BASE_HREF } from '@angular/common';
-import { FormTaskComponent } from './admin/form-task/form-task.component';
 import { usersComponent } from './admin/users/user.component';
 import { FormUserComponent } from './admin/form-user/form-user.component';
 import { AuthModule } from './admin/auth/auth.module';
-
+import { TaskModule } from './admin/tasks/task.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,8 +34,6 @@ import { AuthModule } from './admin/auth/auth.module';
     FormComponent,
     BlankComponent,
     ProjectDetailsComponent,
-    FormTaskComponent,
-    TaskComponent,
     FormUserComponent
   ],
   imports: [
@@ -45,7 +41,10 @@ import { AuthModule } from './admin/auth/auth.module';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    AuthModule
+    AuthModule,
+    TaskModule,
+ 
+
   ],
   providers: [
     ProjectService,

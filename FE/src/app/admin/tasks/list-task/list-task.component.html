@@ -19,7 +19,7 @@
 </head>
 
 <body>
-    <app-header></app-header>
+
     <div id="wrapper">
         <div id="page-wrapper">
             <div id="page-inner">
@@ -63,7 +63,7 @@
                                                 <td>{{ task.created_at }}</td>
                                                 <td>{{ task.updated_at }}</td>
                                                 <td>
-                                                    <button (click)="confirmDelete(task._id)">Xóa</button>
+                                                    <button class="btn btn-danger" (click)="confirmDelete(task._id)">Xóa</button>
                                                 </td>
                                             </tr>
                                         </tbody>
