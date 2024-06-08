@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ProjectService } from '../services/project.service';
-import { IProject } from '../entities/project';
+import { ProjectService } from '../../services/project.service'; 
+import { IProject } from '../../entities/project';
 import { Location } from '@angular/common';
 
 @Component({
@@ -9,7 +9,7 @@ import { Location } from '@angular/common';
   templateUrl: './project-detail.component.html',
   styleUrls: ['./project-detail.component.css']
 })
-export class ProjectDetailsComponent implements OnInit {
+export class ProjectDetailComponent implements OnInit {
   project: IProject;
 
   constructor(private route: ActivatedRoute, private projectService: ProjectService, private location: Location) { }

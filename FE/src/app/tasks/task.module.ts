@@ -4,11 +4,13 @@ import { AddTaskComponent } from './add-task/add-task.component';
 import { ListtaskComponent } from './list-task/list-task.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgxPaginationModule } from 'ngx-pagination';
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    BrowserModule
+    BrowserModule,
+    NgxPaginationModule
   ],
   declarations: [
     AddTaskComponent,

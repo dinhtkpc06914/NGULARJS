@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { ProjectService } from '../services/project.service';
-import { IProject } from '../entities/project';
+import { ProjectService } from '../../services/project.service';
+import { IProject } from '../../entities/project';
 
 @Component({
-  selector: 'app-projects',
-  templateUrl: './projects.component.html',
-  styleUrls: ['./projects.component.css']
+  selector: 'app-list-project',
+  templateUrl: './list-project.component.html',
+  styleUrls: ['./list-project.component.css']
 })
-export class ProjectsComponent implements OnInit {
+export class ListProjectComponent implements OnInit {
   projects: IProject[] = [];
   p: number = 1; // Current page number
   

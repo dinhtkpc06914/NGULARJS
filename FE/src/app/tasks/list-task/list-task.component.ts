@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class ListtaskComponent implements OnInit {
   tasks: ITask[] = [];
+  p: number = 1; // Current page number
   newTask: ITask = {
     project_id: '',
     name: '',
