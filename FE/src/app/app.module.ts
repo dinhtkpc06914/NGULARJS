@@ -21,6 +21,7 @@ import { usersComponent } from './admin/users/user.component';
 import { FormUserComponent } from './admin/form-user/form-user.component';
 import { AuthModule } from './admin/auth/auth.module';
 import { TaskModule } from './admin/tasks/task.module';
+import { NgxPaginationModule } from 'ngx-pagination';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +44,7 @@ import { TaskModule } from './admin/tasks/task.module';
     HttpClientModule,
     AuthModule,
     TaskModule,
+    NgxPaginationModule
  
 
   ],
