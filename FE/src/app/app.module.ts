@@ -5,23 +5,19 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './admin/header/header.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HomeComponent } from './admin/home/home.component';
-import { FooterComponent } from './admin/footer/footer.component';
-import { TabPanelComponent } from './admin/tab-panel/tab-panel.component';
-import { ChartComponent } from './admin/chart/chart.component';
-import { ProjectsComponent } from './admin/projects/projects.component';
-import { FormComponent } from './admin/form/form.component';
-import { BlankComponent } from './admin/blank/blank.component';
-import { ProjectDetailsComponent } from './admin/project-detail/project-detail.component';
-import { ProjectService } from './admin/services/project.service';
-import { TaskComponent } from './admin/task/task.component';
-import { TaskService } from './admin/services/task.service';
-import { UsersService } from './admin/services/user.service';
+
+import { HomeComponent } from './home/home.component';
+import { FooterComponent } from './footer/footer.component';
+import { ChartComponent } from './chart/chart.component';
+import { BlankComponent } from './blank/blank.component';
+import { ProjectService } from './services/project.service';
+import { TaskService } from './services/task.service';
+import { UsersService } from './services/user.service';
 import { APP_BASE_HREF } from '@angular/common';
-import { FormTaskComponent } from './admin/form-task/form-task.component';
-import { usersComponent } from './admin/users/user.component';
-import { FormUserComponent } from './admin/form-user/form-user.component';
-import { AuthModule } from './admin/auth/auth.module';
+import { AuthModule } from './auth/auth.module';
+import { TaskModule } from './tasks/task.module';
+import { ProjectModule } from './projects/project.module';
+import { UserModule } from './users/user.module';
 
 @NgModule({
   declarations: [
@@ -29,8 +25,6 @@ import { AuthModule } from './admin/auth/auth.module';
     HeaderComponent,
     HomeComponent,
     FooterComponent,
-    usersComponent,
-    TabPanelComponent,
     ChartComponent,
     ProjectsComponent,
     FormComponent,
@@ -45,7 +39,10 @@ import { AuthModule } from './admin/auth/auth.module';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    AuthModule
+    AuthModule,
+    TaskModule,
+    ProjectModule,
+    UserModule,
   ],
   providers: [
     ProjectService,
