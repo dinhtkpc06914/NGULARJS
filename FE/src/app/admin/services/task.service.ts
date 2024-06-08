@@ -18,40 +18,35 @@ export class TaskService {
       .catch(this.handleError);
   }
 
-  getTaskById(id: string): Observable<ITask> {
-    if (!id) {
-      return Observable.throw('ID không hợp lệ');
-    }
-    return this.http.get<ITask>(`${this.url}/${id}`)
-      .catch(this.handleError);
-  }
+  // getTaskById(id: string): Observable<ITask> {
+  //   if (!id) {
+  //     return Observable.throw('ID không hợp lệ');
+  //   }
+  //   return this.http.get<ITask>(`${this.url}/${id}`)
+  //     .catch(this.handleError);
+  // }
 
-  createtask(task: ITask): Observable<ITask> {
-
-    return this.http.post<ITask>(this.url, task)
-
+  createtask(post:ITask): Observable<ITask> {
+    return this.http.post<ITask>(this.url, post)
       .catch(this.handleError);
   }
 
   deletetask(id: string): Observable<void> {
     console.log(`Xóa task với ID: ${id}`); 
-
-
     return this.http.delete<void>(`${this.url}/${id}`)
-
       .catch(this.handleError);
   }
 
-  updatetask(task: ITask): Observable<ITask> {
-    if (task._id) {
-      const taskId = task._id;
-      return this.http.put<ITask>(`${this.url}/${taskId}`, task)
-        .catch(this.handleError);
-    } else {
-      console.error('ID task không hợp lệ!');
-      return Observable.throw('ID task không hợp lệ!');
-    }
-  }
+  // updatetask(task: ITask): Observable<ITask> {
+  //   if (task._id) {
+  //     const taskId = task._id;
+  //     return this.http.put<ITask>(`${this.url}/${taskId}`, task)
+  //       .catch(this.handleError);
+  //   } else {
+  //     console.error('ID task không hợp lệ!');
+  //     return Observable.throw('ID task không hợp lệ!');
+  //   }
+  // }
 
   private handleError(error: HttpErrorResponse) {
     let errorMessage = 'Unknown error!';

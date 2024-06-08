@@ -37,16 +37,6 @@ export class TaskComponent implements OnInit {
     );
   }
 
-  // deletetask(id: string) {
-  //   this.taskService.deletetask(id).subscribe(
-  //     () => {
-  //       console.log('Task deleted successfully');
-  //       this.getAlltasks();
-  //     },
-  //     error => console.error('Error deleting task:', error)
-  //   );
-  // }
-
   deletetask(id: string) {
     console.log('Deleting post with ID:', id);
     if (id) {

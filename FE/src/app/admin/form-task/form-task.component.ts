@@ -32,6 +32,9 @@ export class FormTaskComponent implements OnInit {
   ngOnInit() {}
 
   onSubmit() {
+  }
+
+  creattask(){
     this.taskService.createtask(this.task).subscribe(
       response => {
         console.log('Task added successfully', response);
