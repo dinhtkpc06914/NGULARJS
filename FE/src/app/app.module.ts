@@ -7,7 +7,6 @@ import { HeaderComponent } from './header/header.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
-import { TabPanelComponent } from './tab-panel/tab-panel.component';
 import { ChartComponent } from './chart/chart.component';
 import { BlankComponent } from './blank/blank.component';
 import { ProjectService } from './services/project.service';
@@ -16,7 +15,6 @@ import { UsersService } from './services/user.service';
 import { APP_BASE_HREF } from '@angular/common';
 import { AuthModule } from './auth/auth.module';
 import { TaskModule } from './tasks/task.module';
-import { NgxPaginationModule } from 'ngx-pagination';
 import { ProjectModule } from './projects/project.module';
 import { UserModule } from './users/user.module';
 @NgModule({
@@ -25,7 +23,6 @@ import { UserModule } from './users/user.module';
     HeaderComponent,
     HomeComponent,
     FooterComponent,
-    TabPanelComponent,
     ChartComponent,
     BlankComponent,
   
@@ -37,7 +34,6 @@ import { UserModule } from './users/user.module';
     HttpClientModule,
     AuthModule,
     TaskModule,
-    NgxPaginationModule,
     ProjectModule,
     UserModule,
  

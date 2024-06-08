@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class ListUsersComponent implements OnInit {
   users: IUsers[] = [];
-
+  p: number = 1; // Current page number
   constructor(private userService: UsersService, private router: Router) { }
 
   ngOnInit() {
