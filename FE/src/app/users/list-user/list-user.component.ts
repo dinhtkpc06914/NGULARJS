@@ -1,16 +1,16 @@
 
 import { Component, OnInit } from '@angular/core';
-import { UsersService } from '../services/user.service';
-import { IUsers } from '../entities/user';// Đảm bảo đường dẫn đúng
+import { UsersService } from '../../services/user.service'; 
+import { IUsers } from '../../entities/user';
 import { Router } from '@angular/router';
 
 
 @Component({
-  selector: 'app-users',
-  templateUrl: './user.component.html',
-  styleUrls: ['./user.component.css']
+  selector: 'app-list-user',
+  templateUrl: './list-user.component.html',
+  styleUrls: ['./list-user.component.css']
 })
-export class usersComponent implements OnInit {
+export class ListUsersComponent implements OnInit {
   users: IUsers[] = [];
 
   constructor(private userService: UsersService, private router: Router) { }

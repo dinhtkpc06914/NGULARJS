@@ -14,23 +14,21 @@ import { ProjectService } from './services/project.service';
 import { TaskService } from './services/task.service';
 import { UsersService } from './services/user.service';
 import { APP_BASE_HREF } from '@angular/common';
-import { usersComponent } from './users/user.component';
-import { FormUserComponent } from './form-user/form-user.component';
 import { AuthModule } from './auth/auth.module';
 import { TaskModule } from './tasks/task.module';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ProjectModule } from './projects/project.module';
+import { UserModule } from './users/user.module';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     HomeComponent,
     FooterComponent,
-    usersComponent,
     TabPanelComponent,
     ChartComponent,
     BlankComponent,
-    FormUserComponent
+  
   ],
   imports: [
     BrowserModule,
@@ -40,7 +38,8 @@ import { ProjectModule } from './projects/project.module';
     AuthModule,
     TaskModule,
     NgxPaginationModule,
-    ProjectModule
+    ProjectModule,
+    UserModule,
  
 
   ],
