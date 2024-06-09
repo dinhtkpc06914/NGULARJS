@@ -3,8 +3,6 @@ import { NgForm } from '@angular/forms'
 import { TaskService } from '../../services/task.service';
 import { ITask } from '../../entities/task';
 
-
-
 @Component({
   selector: 'app-add-task',
   templateUrl: './add-task.component.html',
