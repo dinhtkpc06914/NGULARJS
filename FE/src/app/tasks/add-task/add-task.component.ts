@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
 import { NgForm } from '@angular/forms'
-
 import { TaskService } from '../../services/task.service';
 import { ITask } from '../../entities/task';
-
 
 @Component({
   selector: 'app-add-task',
@@ -12,8 +9,6 @@ import { ITask } from '../../entities/task';
   styleUrls: ['./add-task.component.css']
 })
 export class AddTaskComponent implements OnInit {
-
-
   task: ITask = {
     project_id: '',
     name: '',
@@ -32,6 +27,9 @@ export class AddTaskComponent implements OnInit {
   ngOnInit() {}
 
   onSubmit() {
+  }
+
+  creattask(){
     this.taskService.createtask(this.task).subscribe(
       response => {
         console.log('Task added successfully', response);
