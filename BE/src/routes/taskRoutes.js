@@ -2,6 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const TaskController = require('../controllers/taskController');
+const Task = require ('../models/task')
 
 // Đảm bảo các route này tồn tại trên server của bạn
 router.get('/tasks', TaskController.getAllTask);
