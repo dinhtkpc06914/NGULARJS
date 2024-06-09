@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
-import { NgForm } from '@angular/forms'
-
+import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { TaskService } from '../services/task.service';
 import { ITask } from '../entities/task';
 
@@ -12,8 +11,6 @@ import { ITask } from '../entities/task';
   styleUrls: ['./form-task.component.css']
 })
 export class FormTaskComponent implements OnInit {
-
-
   task: ITask = {
     project_id: '',
     name: '',
