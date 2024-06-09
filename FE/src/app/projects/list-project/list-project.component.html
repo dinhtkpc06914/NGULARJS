@@ -68,10 +68,8 @@
                                                     <td>{{ project.created_at }}</td>
                                                     <td>{{ project.updated_at }}</td>
                                                     <td>
-                                                        <a [routerLink]="['/project', project._id]"
-                                                            class="btn btn-primary ">Chi tiết</a>
-                                                        <button (click)="deleteProject(project._id)"
-                                                            class="btn btn-danger mt-2">Xóa</button>
+                                                        <a [routerLink]="['/project', project._id]" class="btn btn-primary ">Chi tiết</a>
+                                                        <button (click)="deleteProject(project._id)" class="btn btn-danger mt-2">Xóa</button>
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -80,7 +78,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </ng-container>
                 </div>
                 <pagination-controls (pageChange)="p = $event"></pagination-controls>
             </div>
@@ -97,7 +95,5 @@
     <script src="assets/admin/js/morris/morris.js"></script>
     <!-- CUSTOM SCRIPTS -->
     <script src="assets/admin/js/custom.js"></script>
-</html>
-
 </body>
-
+</html>
