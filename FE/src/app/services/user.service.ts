@@ -29,6 +29,9 @@ export class UsersService {
     return this.http.post<IUsers>(this.url, user)
       .catch(this.handleError);
   }
+  addUser(user: any): Observable<any> {
+    return this.http.post(`${this.url}`, user);
+  }
 
   deleteuser(id: string): Observable<void> {
     console.log(`Xóa user với ID: ${id}`); 

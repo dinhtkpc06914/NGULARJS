@@ -9,7 +9,7 @@ import { IProject } from '../entities/project'; // Đảm bảo đường dẫn 
 @Injectable()
 export class ProjectService {
   private url = 'http://localhost:3000/api/projects';
-  private url2 = 'http://localhost:3000/api/project';
+
   constructor(private http: HttpClient) { }
 
   getAllprojects(): Observable<IProject[]> {
@@ -21,20 +21,21 @@ export class ProjectService {
     if (!id) {
       return Observable.throw('ID không hợp lệ');
     }
-    return this.http.get<IProject>(`${this.url2}/${id}`)
+    return this.http.get<IProject>(`${this.url}/${id}`)
       .catch(this.handleError);
   }
   createproject(project: IProject): Observable<IProject> {
     return this.http.post<IProject>(this.url, project)
       .catch(this.handleError);
   }
-
+  addProject(project: any): Observable<any> {
+    return this.http.post(`${this.url}`, project);
+  }
   deleteproject(id: string): Observable<void> {
     console.log(`Deleting project with ID: ${id}`); // Log để kiểm tra
-    return this.http.delete<void>(`${this.url2}/${id}`)
+    return this.http.delete<void>(`${this.url}/${id}`)
       .catch(this.handleError);
   }
-  
   updateproject(project: IProject): Observable<IProject> {
     if (project._id && project._id.$oid) {
       const projectId = project._id.$oid;

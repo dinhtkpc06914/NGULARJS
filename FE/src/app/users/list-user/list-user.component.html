@@ -37,6 +37,7 @@
                       <tr>
                         <th>ID</th>
                         <th>Username</th>
+                        <th>Password</th>
                         <th>Email</th>
                         <th>Role</th>
                         <th>Team</th>
@@ -50,6 +51,7 @@
                       <tr *ngFor="let user of users| paginate: { itemsPerPage: 5, currentPage: p }; let i = index">
                         <td>{{ i + 1 }}</td> <!-- Số thứ tự -->
                         <td>{{ user.username }}</td>
+                        <td>{{ user.password }}</td>
                         <td>{{ user.email }}</td>
                         <td>{{ user.role }}</td>
                         <td>{{ user.team }}</td>
