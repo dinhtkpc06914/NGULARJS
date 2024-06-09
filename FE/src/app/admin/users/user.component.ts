@@ -32,7 +32,7 @@ export class usersComponent implements OnInit {
     this.router.navigate(['/user', id]);
   }
   confirmDelete(id: string) {
-    if (confirm('Bạn có chắc xóa không?')) {
+    if (confirm('Bạn có chắc chắn muốn xóa ?')) {
       this.deleteuser(id);
     }
   }
