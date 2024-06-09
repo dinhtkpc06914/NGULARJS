@@ -10,20 +10,15 @@ import { TaskRoutingModule } from './tasks/task-routing.module';
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuard] }, // Áp dụng AuthGuard cho đường dẫn mặc định
   { path: 'chart', component: ChartComponent },
-  { path: 'project', component: ProjectsComponent },
-  { path: 'task', component: TaskComponent },
-  { path: 'form-task', component: FormTaskComponent },
-  { path: 'form', component: FormComponent },
-  { path: 'form-task', component: FormTaskComponent },
-  { path: 'form-user', component: FormUserComponent },
   { path: 'blank', component: BlankComponent },
-  { path: 'project/:id', component: ProjectDetailsComponent },
   { path: '', redirectTo: '/', pathMatch: 'full' }, // Loại bỏ đường dẫn mặc định, vì nó đã được thêm ở trên
 ];
 
 @NgModule({
   imports: [
     CommonModule,
+    TaskRoutingModule,
+
     RouterModule.forRoot(routes)
   ],
   exports: [RouterModule],
