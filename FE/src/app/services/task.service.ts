@@ -4,13 +4,15 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
-import { ITask } from '../entities/task';
+import { Router } from '@angular/router';
+import { environment } from '../../environments/environment';
+import { ITask } from '../entities/task'
 
 @Injectable()
 export class TaskService {
   private url = 'http://localhost:3000/api/tasks';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) {}
 
   getAlltasks(): Observable<ITask[]> {
     return this.http.get<ITask[]>(this.url)
@@ -26,21 +28,12 @@ export class TaskService {
       .catch(this.handleError);
   }
 
-  createtask(task: ITask): Observable<ITask> {
-
-    return this.http.post<ITask>(this.url, task)
-
-      .catch(this.handleError);
+ 
+  createtask(post:any): Observable<any> {
+    return this.http.post(`${this.url}`, post);
   }
 
-  deletetask(id: string): Observable<void> {
-    console.log(`Xóa task với ID: ${id}`); 
 
-
-    return this.http.delete<void>(`${this.url}/${id}`)
-
-      .catch(this.handleError);
-  }
 
   updatetask(task: ITask): Observable<ITask> {
     if (task._id) {
