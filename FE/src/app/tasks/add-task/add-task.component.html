@@ -22,13 +22,7 @@
                 <div class="col-md-12">
                     <h2>Thêm Task</h2>
                 </div>
-<<<<<<< HEAD:FE/src/app/admin/form-task/form-task.component.html
-
-                <form (submit)="creattask()" #loginForm="ngForm">
-
-=======
                 <form (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm">
->>>>>>> fc407e01d7ce516c00feef89691d6501fc3b8a65:FE/src/app/tasks/add-task/add-task.component.html
                     <div class="form-group">
                       <label for="project_id">Project ID</label>
                       <input type="text" class="form-control" id="project_id" required [(ngModel)]="task.project_id" name="project_id">
