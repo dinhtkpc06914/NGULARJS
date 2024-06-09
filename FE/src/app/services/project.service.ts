@@ -24,10 +24,7 @@ export class ProjectService {
     return this.http.get<IProject>(`${this.url}/${id}`)
       .catch(this.handleError);
   }
-  createproject(project: IProject): Observable<IProject> {
-    return this.http.post<IProject>(this.url, project)
-      .catch(this.handleError);
-  }
+ 
   addProject(project: any): Observable<any> {
     return this.http.post(`${this.url}`, project);
   }
