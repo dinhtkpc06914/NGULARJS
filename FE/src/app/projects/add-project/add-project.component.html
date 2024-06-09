@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -27,63 +26,61 @@
                 <div class="col-md-12">
                     <h2>Thêm Dự Án</h2>
                 </div>
-                <form (submit)="register()">
+                <form (submit)="addProject()">
                     <div class="form-group">
                         <label for="name">Tên</label>
-                        <input type="text" class="form-control" id="name" [(ngModel)]="name" name="name">
+                        <input type="text" class="form-control" id="name" [(ngModel)]="name" name="name" required>
                         <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger"></div>
                     </div>
                     <div class="form-group">
                         <label for="description">Mô tả</label>
-                        <input type="text" class="form-control" id="description" [(ngModel)]="description" name="description"
-                            required>
-                        <div *ngIf="description.invalid && (description.dirty || description.touched)"
-                            class="alert alert-danger"></div>
+                        <input type="text" class="form-control" id="description" [(ngModel)]="description" name="description" required>
+                        <div *ngIf="description.invalid && (description.dirty || description.touched)" class="alert alert-danger"></div>
                     </div>
                     <div class="form-group">
-                        <label for="start">Ngày Bắt đầu</label>
-                        <input type="date" class="form-control" ngModel name="start" #start="ngModel" required>
-                        <div *ngIf="start.invalid && (start.dirty ||start.touched)" class="alert alert-danger">
-                        </div>
+                        <label for="leader_id">ID Trưởng Nhóm</label>
+                        <input type="text" class="form-control" id="leader_id" [(ngModel)]="leader_id" name="leader_id" required>
+                        <div *ngIf="leader_id.invalid && (leader_id.dirty || leader_id.touched)" class="alert alert-danger"></div>
                     </div>
                     <div class="form-group">
-                        <label for="end">Ngày Kết thúc</label>
-                        <input type="date" class="form-control" ngModel name="end" #end="ngModel" required>
-                        <div *ngIf="end.invalid && (end.dirty ||end.touched)" class="alert alert-danger"></div>
-                    </div>
-                    <div class="form-group">
-                        <label for="team">Thành viên Nhóm</label>
-                        <input type="text" class="form-control" ngModel name="team" #team="ngModel" required>
+                        <label for="team">Thêm Nhóm</label>
+                        <input type="text" class="form-control" id="team" [(ngModel)]="team" name="team" required>
                         <div *ngIf="team.invalid && (team.dirty || team.touched)" class="alert alert-danger"></div>
                     </div>
                     <div class="form-group">
+                        <label for="start_date">Ngày Bắt đầu</label>
+                        <input type="date" class="form-control" id="start_date" [(ngModel)]="start_date" name="start_date" required>
+                        <div *ngIf="start_date.invalid && (start_date.dirty ||start_date.touched)" class="alert alert-danger"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="end_date">Ngày Kết thúc</label>
+                        <input type="date" class="form-control" id="end_date" [(ngModel)]="end_date" name="end_date" required>
+                        <div *ngIf="end_date.invalid && (end_date.dirty ||end_date.touched)" class="alert alert-danger"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="budget">Ngân sách</label>
+                        <input type="number" class="form-control" id="budget" [(ngModel)]="budget" name="budget" required>
+                        <div *ngIf="budget.invalid && (budget.dirty || budget.touched)" class="alert alert-danger"></div>
+                    </div>
+                    <div class="form-group">
                         <label for="status">Trạng thái</label>
-                        <select class="form-control" ngModel name="status" #status="ngModel" required>
-                            <option value="0">Chưa xác nhận</option>
-                            <option value="1">Đang thực hiện</option>
-                            <option value="3">Đã thực hiện</option>
-                            <option value="2">Đã hủy</option>
+                        <select class="form-control" id="status" [(ngModel)]="status" name="status" required>
+                            <option value="pending">Chưa xác nhận</option>
+                            <option value="ongoing">Đang thực hiện</option>
+                            <option value="completed">Đã thực hiện</option>
+                            <option value="cancelled">Đã hủy</option>
                         </select>
                     </div>
                     <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Thêm mới</button>
                 </form>
-
-                <!-- HÀNG DỮ LIỆU  -->
-                <hr />
-                <div class="row">
-                    <div class="col-md-12">
-                        <!-- CÁC YẾU TỐ CỦA FORM -->
-
-                        <!-- Kết thúc Các Yếu tố của Form -->
-                    </div>
-                </div>
-                <!-- HÀNG DỮ LIỆU  -->
+     
+                <hr />            
                 <div class="row">
                     <div class="col-md-12">
 
                     </div>
                 </div>
-                <!-- HÀNG DỮ LIỆU  -->
+               
             </div>
             <!-- Kết thúc TRANG NỘI BỘ  -->
         </div>
@@ -106,4 +103,3 @@
 </body>
 
 </html>
-
