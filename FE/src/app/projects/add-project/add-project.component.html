@@ -27,15 +27,15 @@
                 <div class="col-md-12">
                     <h2>Thêm Dự Án</h2>
                 </div>
-                <form (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm">
+                <form (submit)="register()">
                     <div class="form-group">
                         <label for="name">Tên</label>
-                        <input type="text" class="form-control" ngModel name="name" #name="ngModel">
+                        <input type="text" class="form-control" id="name" [(ngModel)]="name" name="name">
                         <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger"></div>
                     </div>
                     <div class="form-group">
                         <label for="description">Mô tả</label>
-                        <input type="text" class="form-control" ngModel name="description" #description="ngModel"
+                        <input type="text" class="form-control" id="description" [(ngModel)]="description" name="description"
                             required>
                         <div *ngIf="description.invalid && (description.dirty || description.touched)"
                             class="alert alert-danger"></div>
