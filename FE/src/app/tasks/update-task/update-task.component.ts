@@ -48,15 +48,16 @@ export class UpdateTaskComponent implements OnInit {
 
   updateTask() {
     const taskData = {
-      _id: this.id, // Ensure the _id property is used
-      project_id: this.project_id,
-      name: this.name,
-      description: this.description,
-      assignee_id: this.assignee_id,
-      status: this.status,
-      priority: this.priority,
-      start_date: this.start_date,
-      due_date: this.due_date
+
+        id: this.id,
+        name: this.name,
+        description: this.description,
+        assignee_id: this.assignee_id,
+        status: this.status,
+        priority: this.priority,
+        start_date: this.start_date,
+        due_date: this.due_date
+
     };
     console.log('Task data before update:', taskData); // Log dữ liệu trước khi gửi
 
@@ -71,5 +72,7 @@ export class UpdateTaskComponent implements OnInit {
     );
 
 }
-  
+
+
 }
+  

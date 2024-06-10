@@ -7,8 +7,8 @@ const taskSchema = new Schema({
   description: { type: String, required: true },
   assignee_id: { type: Schema.Types.ObjectId, required: true },
 
-  status: { type: String, enum: ['Đang chờ', 'Đang tiến hành', 'Đã hoàn thành'], required: true },
-  priority: { type: String, enum: ['Thấp', 'Trung bình', 'Cao'], required: true },
+  status: { type: String, enum: ['to do', 'inprogress', 'done'], required: true },
+  priority: { type: String, enum: ['low', 'medium', 'high'], required: true },
 
   start_date: { type: Date, required: true },
   due_date: { type: Date, required: true },
