@@ -1,4 +1,3 @@
-
 import { IUsers } from './../entities/user';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
@@ -28,6 +27,9 @@ export class UsersService {
   createuser(user: IUsers): Observable<IUsers> {
     return this.http.post<IUsers>(this.url, user)
       .catch(this.handleError);
+  }
+  addUser(user: any): Observable<any> {
+    return this.http.post(`${this.url}`, user);
   }
 
   deleteuser(id: string): Observable<void> {
