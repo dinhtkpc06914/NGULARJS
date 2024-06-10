@@ -34,8 +34,10 @@
                     </div>
                     <div class="form-group">
                         <label for="description">Mô tả</label>
+
                         <input type="text" class="form-control" id="description" [(ngModel)]="description" name="description" required>
                         <div *ngIf="description.invalid && (description.dirty || description.touched)" class="alert alert-danger"></div>
+
                     </div>
                     <div class="form-group">
                         <label for="leader_id">ID Trưởng Nhóm</label>
@@ -72,9 +74,12 @@
                         </select>
                     </div>
                     <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Thêm mới</button>
-                </form>     
-                <hr />                                
-            </div>          
+
+
+                </form>
+                <hr />            
+                           
+            </div>
         </div>
     </div>
 

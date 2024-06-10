@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -17,6 +16,8 @@ import { AuthModule } from './auth/auth.module';
 import { TaskModule } from './tasks/task.module';
 import { ProjectModule } from './projects/project.module';
 import { UserModule } from './users/user.module';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,8 +25,7 @@ import { UserModule } from './users/user.module';
     HomeComponent,
     FooterComponent,
     ChartComponent,
-    BlankComponent,
-  
+    BlankComponent
   ],
   imports: [
     BrowserModule,
@@ -36,8 +36,7 @@ import { UserModule } from './users/user.module';
     TaskModule,
     ProjectModule,
     UserModule,
- 
-
+    ReactiveFormsModule,
   ],
   providers: [
     ProjectService,

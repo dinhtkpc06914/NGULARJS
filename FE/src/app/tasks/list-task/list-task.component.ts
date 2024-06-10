@@ -61,23 +61,23 @@ export class ListtaskComponent implements OnInit {
     }
   }
 
-  createtask() {
-    this.taskService.createtask(this.newTask).subscribe(
-      () => {
-        console.log('Task created successfully');
-        this.getAlltasks();
-        this.newTask = {
-          project_id: '',
-          name: '',
-          description: '',
-          assignee_id: '',
-          status: '',
-          priority: '',
-          start_date: '',
-          due_date: ''
-        };
-      },
-      error => console.error('Error creating task:', error)
-    );
-  }
+  // createtask() {
+  //   this.taskService.createtask(this.newTask).subscribe(
+  //     () => {
+  //       console.log('Task created successfully');
+  //       this.getAlltasks();
+  //       this.newTask = {
+  //         project_id: '',
+  //         name: '',
+  //         description: '',
+  //         assignee_id: '',
+  //         status: '',
+  //         priority: '',
+  //         start_date: '',
+  //         due_date: ''
+  //       };
+  //     },
+  //     error => console.error('Error creating task:', error)
+  //   );
+  // }
 }

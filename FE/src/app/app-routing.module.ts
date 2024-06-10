@@ -17,7 +17,6 @@ const routes: Routes = [
   imports: [
     CommonModule,
     TaskRoutingModule,
-
     RouterModule.forRoot(routes)
   ],
   exports: [RouterModule],

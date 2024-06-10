@@ -1,11 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
-import { NgForm } from '@angular/forms'
-
+import { Router } from '@angular/router';
 import { TaskService } from '../../services/task.service';
-import { ITask } from '../../entities/task';
-
-
 @Component({
   selector: 'app-add-task',
   templateUrl: './add-task.component.html',
@@ -13,43 +8,37 @@ import { ITask } from '../../entities/task';
 })
 export class AddTaskComponent implements OnInit {
 
+    project_id: string;
+    name: string;
+    description: string;
+    assignee_id: string;
+    status: string;
+    priority: string;
+    start_date: string;
+    due_date: string;
+    errorMessage: string;
 
-  task: ITask = {
-    project_id: '',
-    name: '',
-    description: '',
-    assignee_id: '',
-    status: '',
-    priority: '',
-    start_date: '',
-    due_date: ''
-  };
-
-  editingTask: boolean = false;
-
-  constructor(private taskService: TaskService) {}
-
+  constructor(private taskService: TaskService, private router: Router) {}
   ngOnInit() {}
-
-  onSubmit() {
-    this.taskService.createtask(this.task).subscribe(
-      response => {
-        console.log('Task added successfully', response);
-        this.task = {
-          project_id: '',
-          name: '',
-          description: '',
-          assignee_id: '',
-          status: '',
-          priority: '',
-          start_date: '',
-          due_date: ''
-        };
+  createtask() {
+    this.taskService.createtask({
+      project_id: this.project_id,
+      name: this.name,
+      description: this.description,
+      assignee_id: this.assignee_id,
+      status: this.status,
+      priority: this.priority,
+      start_date: new Date().toISOString(),
+      due_date: new Date().toISOString()
+    }).subscribe(
+      res => {
+        this.router.navigate(['/list-task']); // Điều hướng đến trang tasks sau khi tạo task thành công
       },
-      error => {
-        console.error('Error adding task', error);
+      err => {
+        this.errorMessage = 'Không thể tạo công việc, vui lòng thử lại'; // Thông báo lỗi
       }
     );
   }
+  
 
 }
