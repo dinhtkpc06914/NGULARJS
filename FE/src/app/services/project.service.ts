@@ -22,7 +22,6 @@ export class ProjectService {
     if (!id) {
       return Observable.throw('ID không hợp lệ');
     }
-
     return this.http.get<any>(`${this.url}/${id}`)
       .catch(this.handleError);
   }

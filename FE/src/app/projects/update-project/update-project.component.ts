@@ -24,6 +24,7 @@ export class UpdateProjectComponent implements OnInit {
     private router: Router, 
     private route: ActivatedRoute
   ) { }
+  
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.id = params['id'];
@@ -58,7 +59,6 @@ export class UpdateProjectComponent implements OnInit {
       end_date: this.end_date,
       budget: parsedBudget,
       status: this.status,
-     
     }).subscribe(
       res => {
         this.router.navigate(['/list-project']);
