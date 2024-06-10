@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mẫu Quản Trị Viên</title>
+    <title>add-project</title>
     <!-- BOOTSTRAP STYLES-->
     <link href="assets/admin/css/bootstrap.css" rel="stylesheet" />
     <!-- FONTAWESOME STYLES-->
@@ -26,44 +26,39 @@
                 <div class="col-md-12">
                     <h2>Thêm Dự Án</h2>
                 </div>
-                <form (submit)="addProject()">
+                <form  (submit)="addProject()">
                     <div class="form-group">
                         <label for="name">Tên</label>
-                        <input type="text" class="form-control" id="name" [(ngModel)]="name" name="name" required>
-
-                        <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger"></div>
+                        <input type="text" class="form-control" id="name" [(ngModel)]="name" name="name" required>             
                     </div>
                     <div class="form-group">
                         <label for="description">Mô tả</label>
-
-                        <input type="text" class="form-control" id="description" [(ngModel)]="description" name="description" required>
-                        <div *ngIf="description.invalid && (description.dirty || description.touched)" class="alert alert-danger"></div>
-
+                        <input type="text" class="form-control" id="description" [(ngModel)]="description" name="description" required>               
                     </div>
                     <div class="form-group">
                         <label for="leader_id">ID Trưởng Nhóm</label>
                         <input type="text" class="form-control" id="leader_id" [(ngModel)]="leader_id" name="leader_id" required>
-                        <div *ngIf="leader_id.invalid && (leader_id.dirty || leader_id.touched)" class="alert alert-danger"></div>
+                      
                     </div>
                     <div class="form-group">
                         <label for="team">Thêm Nhóm</label>
                         <input type="text" class="form-control" id="team" [(ngModel)]="team" name="team" required>
-                        <div *ngIf="team.invalid && (team.dirty || team.touched)" class="alert alert-danger"></div>
+                        
                     </div>
                     <div class="form-group">
                         <label for="start_date">Ngày Bắt đầu</label>
                         <input type="date" class="form-control" id="start_date" [(ngModel)]="start_date" name="start_date" required>
-                        <div *ngIf="start_date.invalid && (start_date.dirty ||start_date.touched)" class="alert alert-danger"></div>
+                       
                     </div>
                     <div class="form-group">
                         <label for="end_date">Ngày Kết thúc</label>
                         <input type="date" class="form-control" id="end_date" [(ngModel)]="end_date" name="end_date" required>
-                        <div *ngIf="end_date.invalid && (end_date.dirty ||end_date.touched)" class="alert alert-danger"></div>
+                        
                     </div>
                     <div class="form-group">
                         <label for="budget">Ngân sách</label>
                         <input type="number" class="form-control" id="budget" [(ngModel)]="budget" name="budget" required>
-                        <div *ngIf="budget.invalid && (budget.dirty || budget.touched)" class="alert alert-danger"></div>
+                     
                     </div>
                     <div class="form-group">
                         <label for="status">Trạng thái</label>
@@ -74,7 +69,7 @@
                             <option value="cancelled">Đã hủy</option>
                         </select>
                     </div>
-                    <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Thêm mới</button>
+                    <button type="submit" class="btn btn-primary" >Thêm mới</button>
 
                 </form>
                 <hr />            

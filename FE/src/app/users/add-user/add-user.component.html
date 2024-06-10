@@ -23,50 +23,87 @@
                 <div class="col-md-12">
                     <h2>Thêm Khách Hàng</h2>
                 </div>
-                <form (submit)="addUser()">
+                <form (submit)="addUser()" #addUserForm="ngForm">
                     <div class="form-group">
                         <label for="username">Tên người dùng</label>
                         <input type="text" class="form-control" id="username" required [(ngModel)]="username"
                             name="username">
+                        <div *ngIf="addUserForm.controls['username'].invalid && (addUserForm.controls['username'].dirty || addUserForm.controls['username'].touched)"
+                            class="alert alert-danger">
+                            <div *ngIf="addUserForm.controls['username'].errors?.required">Tên người dùng là bắt buộc.
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="text" class="form-control" id="password" required [(ngModel)]="password"
+                        <input type="password" class="form-control" id="password" required [(ngModel)]="password"
                             name="password">
+                        <div *ngIf="addUserForm.controls['password'].invalid && (addUserForm.controls['password'].dirty || addUserForm.controls['password'].touched)"
+                            class="alert alert-danger">
+                            <div *ngIf="addUserForm.controls['password'].errors?.required">Mật khẩu là bắt buộc.</div>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="email" class="form-control" id="email" required [(ngModel)]="email" name="email">
+                        <div *ngIf="addUserForm.controls['email'].invalid && (addUserForm.controls['email'].dirty || addUserForm.controls['email'].touched)"
+                            class="alert alert-danger">
+                            <div *ngIf="addUserForm.controls['email'].errors?.required">Email là bắt buộc.</div>
+                            <div *ngIf="addUserForm.controls['email'].errors?.email">Email không hợp lệ.</div>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="role">Vai Trò</label>
                         <select class="form-control" id="role" required [(ngModel)]="role" name="role">
+                            <option value="">Chọn Vai Trò</option>
                             <option value="leader">Leader</option>
                             <option value="employee">Employee</option>
                         </select>
+                        <div *ngIf="addUserForm.controls['role'].invalid && (addUserForm.controls['role'].dirty || addUserForm.controls['role'].touched)"
+                            class="alert alert-danger">
+                            <div *ngIf="addUserForm.controls['role'].errors?.required">Vai trò là bắt buộc.</div>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="image">Hình ảnh</label>
                         <input type="file" class="form-control" id="image" required [(ngModel)]="image" name="image">
+                        <div *ngIf="addUserForm.controls['image'].invalid && (addUserForm.controls['image'].dirty || addUserForm.controls['image'].touched)"
+                            class="alert alert-danger">
+                            <div *ngIf="addUserForm.controls['image'].errors?.required">Hình ảnh là bắt buộc.</div>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="team">Đội</label>
                         <input type="text" class="form-control" id="team" required [(ngModel)]="team" name="team">
+                        <div *ngIf="addUserForm.controls['team'].invalid && (addUserForm.controls['team'].dirty || addUserForm.controls['team'].touched)"
+                            class="alert alert-danger">
+                            <div *ngIf="addUserForm.controls['team'].errors?.required">Đội là bắt buộc.</div>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="created_at">Ngày Tạo Ra</label>
                         <input type="date" class="form-control" id="created_at" required [(ngModel)]="created_at"
                             name="created_at">
+                        <div *ngIf="addUserForm.controls['created_at'].invalid && (addUserForm.controls['created_at'].dirty || addUserForm.controls['created_at'].touched)"
+                            class="alert alert-danger">
+                            <div *ngIf="addUserForm.controls['created_at'].errors?.required">Ngày tạo ra là bắt buộc.
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="update_at">Ngày Cập Nhật</label>
                         <input type="date" class="form-control" id="update_at" required [(ngModel)]="update_at"
                             name="update_at">
+                        <div *ngIf="addUserForm.controls['update_at'].invalid && (addUserForm.controls['update_at'].dirty || addUserForm.controls['update_at'].touched)"
+                            class="alert alert-danger">
+                            <div *ngIf="addUserForm.controls['update_at'].errors?.required">Ngày cập nhật là bắt buộc.
+                            </div>
+                        </div>
                     </div>
-                    <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Thêm mới</button>
+
+                    <button type="submit" class="btn btn-primary" [disabled]="addUserForm.invalid">Thêm mới</button>
                 </form>
             </div>
-
         </div>
     </div>
 
