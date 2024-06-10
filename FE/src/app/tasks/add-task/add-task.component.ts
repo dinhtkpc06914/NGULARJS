@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TaskService } from '../../services/task.service';
-
-
 @Component({
   selector: 'app-add-task',
   templateUrl: './add-task.component.html',
@@ -21,7 +19,6 @@ export class AddTaskComponent implements OnInit {
     errorMessage: string;
 
   constructor(private taskService: TaskService, private router: Router) {}
-
   ngOnInit() {}
   createtask() {
     this.taskService.createtask({
