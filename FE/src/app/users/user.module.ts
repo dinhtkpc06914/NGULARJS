@@ -6,6 +6,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { UserRoutingModule } from './user-routing.module';
 import { AddUserComponent } from './add-user/add-user.component';
 import { ListUsersComponent } from './list-user/list-user.component';
+
 @NgModule({
   imports: [
     CommonModule,
