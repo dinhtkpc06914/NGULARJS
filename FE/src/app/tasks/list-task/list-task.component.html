@@ -64,8 +64,8 @@
                                                 <td>{{ task.created_at }}</td>
                                                 <td>{{ task.updated_at }}</td>
                                                 <td>
-                                                    <button class="btn btn-danger" (click)="confirmDelete(task._id)">Xóa</button>                                            
-                                                   
+                                                    <button class="btn btn-primary" [routerLink]="['/update-task', task._id]">Sửa</button>
+                                                    <button class="btn btn-danger" (click)="confirmDelete(task._id)">Xóa</button>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -93,4 +93,3 @@
 </body>
 
 </html>
-
