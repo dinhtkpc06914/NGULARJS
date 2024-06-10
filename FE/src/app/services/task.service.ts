@@ -28,15 +28,23 @@ export class TaskService {
   //     .catch(this.handleError);
   // }
 
+  getTaskById(id: string): Observable<any> {
+    return this.http.get(`${this.url}/${id}`);
+  }
+
+  updateTask(id: string, task: any): Observable<any> {
+    return this.http.put(`${this.url}/${id}`, task);
+  }
+
   createtask(post:any): Observable<any> {
     return this.http.post(`${this.url}`, post);
   }
 
-  // deletetask(id: string): Observable<void> {
-  //   console.log(`Xóa task với ID: ${id}`); 
-  //   return this.http.delete<void>(`${this.url}/${id}`)
-  //     .catch(this.handleError);
-  // }
+  deletetask(id: string): Observable<void> {
+    console.log(`Xóa task với ID: ${id}`); 
+    return this.http.delete<void>(`${this.url}/${id}`)
+      .catch(this.handleError);
+  }
 
   // updatetask(task: ITask): Observable<ITask> {
   //   if (task._id) {
@@ -48,6 +56,7 @@ export class TaskService {
   //     return Observable.throw('ID task không hợp lệ!');
   //   }
   // }
+
 
   private handleError(error: HttpErrorResponse) {
     let errorMessage = 'Unknown error!';

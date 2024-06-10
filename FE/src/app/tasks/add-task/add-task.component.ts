@@ -8,7 +8,7 @@ import { TaskService } from '../../services/task.service';
   styleUrls: ['./add-task.component.css']
 })
 export class AddTaskComponent implements OnInit {
-    // project_id: string;
+    project_id: string;
     name: string;
     description: string;
     assignee_id: string;
@@ -23,14 +23,14 @@ export class AddTaskComponent implements OnInit {
   ngOnInit() {}
   createtask() {
     this.taskService.createtask({
-      // project_id: this.project_id,
+      project_id: this.project_id,
       name: this.name,
       description: this.description,
       assignee_id: this.assignee_id,
       status: this.status,
       priority: this.priority,
-      start_date: this.start_date,
-      due_date: this.due_date
+      start_date: new Date().toISOString(),
+      due_date: new Date().toISOString()
     }).subscribe(
       res => {
         this.router.navigate(['/list-task']); // Điều hướng đến trang tasks sau khi tạo task thành công
