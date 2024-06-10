@@ -6,9 +6,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AddProjectComponent } from './add-project/add-project.component';
 import { ProjectDetailComponent } from './project-detail/project-detail.component';
 import { ListProjectComponent } from './list-project/list-project.component';
+import { UpdateProjectComponent } from './update-project/update-project.component';
 const ProjectRoutes: Routes = [
   { path: 'add-project', component: AddProjectComponent },
  { path: 'project/:id', component: ProjectDetailComponent },
+ { path: 'projects/:id', component: UpdateProjectComponent },
  { path: 'list-project', component: ListProjectComponent },
 ];
 
