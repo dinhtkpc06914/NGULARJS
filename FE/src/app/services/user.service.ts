@@ -22,7 +22,7 @@ export class UsersService {
     if (!id) {
       return Observable.throw('ID không hợp lệ');
     }
-    return this.http.get<IUsers>(`${this.url2}/${id}`)
+    return this.http.get<IUsers>(`${this.url}/${id}`)
       .catch(this.handleError);
   }
   createuser(user: IUsers): Observable<IUsers> {
@@ -38,17 +38,8 @@ export class UsersService {
     return this.http.delete<void>(`${this.url}/${id}`)
       .catch(this.handleError);
   }
-  
-  updateuser(user: IUsers): Observable<IUsers> {
-    if (user._id && user._id) {
-      const userId = user._id;
-      return this.http.put<IUsers>(`${this.url}/${userId}`, user)
-        .catch(this.handleError);
-    } else {
-      // Xử lý khi _id không hợp lệ
-      console.error('ID user không hợp lệ!');
-      return Observable.throw('ID user không hợp lệ!');
-    }
+  updateUser(user: any): Observable<any> {
+    return this.http.put(`${this.url}/${user.id}`, user);
   }
 
   private handleError(error: HttpErrorResponse) {

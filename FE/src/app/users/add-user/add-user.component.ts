@@ -32,8 +32,8 @@ export class AddUserComponent implements OnInit {
       role: this.role,
       image: this.image,
       team: this.team,
-      created_at: new Date().toISOString(),
-      updated_at: new Date().toISOString()
+      created_at: this.created_at,
+      updated_at: this.updated_at
     }).subscribe(
       res => {
         this.router.navigate(['/list-user']);

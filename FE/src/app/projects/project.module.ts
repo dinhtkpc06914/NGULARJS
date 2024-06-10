@@ -7,6 +7,7 @@ import { AddProjectComponent } from './add-project/add-project.component';
 import { ProjectDetailComponent } from './project-detail/project-detail.component';
 import { ListProjectComponent } from './list-project/list-project.component';
 import { ProjectRoutingModule } from './project-routing.module';
+import { UpdateProjectComponent } from './update-project/update-project.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -18,7 +19,9 @@ import { ProjectRoutingModule } from './project-routing.module';
   declarations: [
     AddProjectComponent,
     ProjectDetailComponent,
-    ListProjectComponent
+    ListProjectComponent,
+    UpdateProjectComponent,
+
   ],
   exports: [
     AddProjectComponent,

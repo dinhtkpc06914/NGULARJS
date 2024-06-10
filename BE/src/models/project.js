@@ -10,7 +10,7 @@ const projectSchema = new Schema({
     start_date: { type: Date, required: true },
     end_date: { type: Date, required: true },
     budget: { type: Number, required: true },
-    status: { type: String, enum: ['ongoing', 'completed', 'pending'], required: true },
+    status: { type: String, enum: ['ongoing', 'completed', 'pending','cancelled'], required: true },
     created_at: { type: Date, default: Date.now },
     updated_at: { type: Date, default: Date.now }
   });
