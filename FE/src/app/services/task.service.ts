@@ -32,13 +32,6 @@ export class TaskService {
     return this.http.get(`${this.url}/${id}`);
   }
 
-  updateTask(id: string, task: any): Observable<any> {
-    return this.http.put(`${this.url}/${id}`, task);
-  }
-
-  createtask(post:any): Observable<any> {
-    return this.http.post(`${this.url}`, post);
-  }
 
   deletetask(id: string): Observable<void> {
     console.log(`Xóa task với ID: ${id}`); 
@@ -46,16 +39,28 @@ export class TaskService {
       .catch(this.handleError);
   }
 
-  // updatetask(task: ITask): Observable<ITask> {
-  //   if (task._id) {
-  //     const taskId = task._id;
-  //     return this.http.put<ITask>(`${this.url}/${taskId}`, task)
-  //       .catch(this.handleError);
-  //   } else {
-  //     console.error('ID task không hợp lệ!');
-  //     return Observable.throw('ID task không hợp lệ!');
-  //   }
+
+  createtask(post:any): Observable<any> {
+    return this.http.post(`${this.url}`, post);
+  }
+
+  // deletetask(id: string): Observable<void> {
+  //   console.log(`Xóa task với ID: ${id}`); 
+  //   return this.http.delete<void>(`${this.url}/${id}`)
+  //     .catch(this.handleError);
   // }
+
+
+  updatetask(task: ITask): Observable<ITask> {
+    if (task._id) {
+      const taskId = task._id;
+      return this.http.put<ITask>(`${this.url}/${taskId}`, task)
+        .catch(this.handleError);
+    } else {
+      console.error('ID task không hợp lệ!');
+      return Observable.throw('ID task không hợp lệ!');
+    }
+  }
 
 
   private handleError(error: HttpErrorResponse) {

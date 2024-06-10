@@ -10,6 +10,7 @@ import { IProject } from '../entities/project'; // Đảm bảo đường dẫn 
 export class ProjectService {
   private url = 'http://localhost:3000/api/projects';
 
+
   constructor(private http: HttpClient) { }
 
   getAllprojects(): Observable<IProject[]> {
@@ -17,36 +18,28 @@ export class ProjectService {
       .map(response => response as IProject[])
       .catch(this.handleError);
   }
-  getProjectById(id: string): Observable<IProject> {
+  getProjectById(id: string): Observable<any> {
     if (!id) {
       return Observable.throw('ID không hợp lệ');
     }
-    return this.http.get<IProject>(`${this.url}/${id}`)
+
+    return this.http.get<any>(`${this.url}/${id}`)
       .catch(this.handleError);
   }
-  createproject(project: IProject): Observable<IProject> {
-    return this.http.post<IProject>(this.url, project)
-      .catch(this.handleError);
-  }
+ 
   addProject(project: any): Observable<any> {
     return this.http.post(`${this.url}`, project);
   }
+
+
   deleteproject(id: string): Observable<void> {
     console.log(`Deleting project with ID: ${id}`); // Log để kiểm tra
     return this.http.delete<void>(`${this.url}/${id}`)
       .catch(this.handleError);
   }
   
-  updateproject(project: IProject): Observable<IProject> {
-    if (project._id && project._id.$oid) {
-      const projectId = project._id.$oid;
-      return this.http.put<IProject>(`${this.url}/${projectId}`, project)
-        .catch(this.handleError);
-    } else {
-      // Xử lý khi _id không hợp lệ
-      console.error('ID bài viết không hợp lệ!');
-      return Observable.throw('ID bài viết không hợp lệ!');
-    }
+  updateProject(project: any): Observable<any> {
+    return this.http.put(`${this.url}/${project.id}`, project);
   }
 
   private handleError(error: HttpErrorResponse) {

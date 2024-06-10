@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TaskService } from '../../services/task.service';
-
 @Component({
   selector: 'app-add-task',
   templateUrl: './add-task.component.html',
@@ -17,6 +16,7 @@ export class AddTaskComponent implements OnInit {
     start_date: string;
     due_date: string;
     errorMessage: string;
+
 
   constructor(private taskService: TaskService, private router: Router) {}
 
