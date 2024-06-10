@@ -54,8 +54,8 @@
                         <td>{{ user.role }}</td>
                         <td>{{ user.team }}</td>
                         <td>{{ user.image }}</td>
-                        <td>{{ user.created_at }}</td>
-                        <td>{{ user.updated_at }}</td>
+                        <td>{{ user.created_at | date: 'dd/MM/yyyy' }}</td>
+                        <td>{{ user.updated_at | date: 'dd/MM/yyyy'}}</td>
                         <td>
                           <button class="btn btn-danger" (click)="confirmDelete(user._id)">Xóa</button>
                           <button class="btn btn-primary" >Sửa</button>
