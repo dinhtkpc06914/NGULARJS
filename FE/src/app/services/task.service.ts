@@ -29,6 +29,12 @@ export class TaskService {
   }
 
   
+  deletetask(id: string): Observable<void> {
+    console.log(`Xóa task với ID: ${id}`); 
+    return this.http.delete<void>(`${this.url}/${id}`)
+      .catch(this.handleError);
+  }
+
   createtask(post:any): Observable<any> {
     return this.http.post(`${this.url}`, post);
   }
@@ -38,6 +44,7 @@ export class TaskService {
   //   return this.http.delete<void>(`${this.url}/${id}`)
   //     .catch(this.handleError);
   // }
+
 
   updatetask(task: ITask): Observable<ITask> {
     if (task._id) {

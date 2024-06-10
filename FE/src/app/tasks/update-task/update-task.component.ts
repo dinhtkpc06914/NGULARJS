@@ -48,23 +48,5 @@ export class UpdateTaskComponent implements OnInit {
     );
   }
 
-  updateTask() {
-    this.taskService.updateTask(this.taskId, {
-      project_id: this.project_id,
-      name: this.name,
-      description: this.description,
-      assignee_id: this.assignee_id,
-      status: this.status,
-      priority: this.priority,
-      start_date: this.start_date,
-      due_date: this.due_date
-    }).subscribe(
-      res => {
-        this.router.navigate(['/list-task']); // Điều hướng đến trang tasks sau khi cập nhật task thành công
-      },
-      err => {
-        this.errorMessage = 'Không thể cập nhật công việc, vui lòng thử lại'; // Thông báo lỗi
-      }
-    );
-  }
+  
 }
