@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -24,43 +23,53 @@
                 <div class="col-md-12">
                     <h2>Thêm Khách Hàng</h2>
                 </div>
-                <form (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm">
+                <form (submit)="addUser()">
                     <div class="form-group">
                         <label for="username">Tên người dùng</label>
-                        <input type="text" class="form-control" id="username" required [(ngModel)]="user.username" name="username">
+                        <input type="text" class="form-control" id="username" required [(ngModel)]="username"
+                            name="username">
                     </div>
                     <div class="form-group">
-                      <label for="email">Email</label>
-                      <input type="email" class="form-control" id="email" required [(ngModel)]="user.email" name="email">
-                  </div>
+                        <label for="password">Password</label>
+                        <input type="text" class="form-control" id="password" required [(ngModel)]="password"
+                            name="password">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" required [(ngModel)]="email" name="email">
+                    </div>
                     <div class="form-group">
                         <label for="role">Vai Trò</label>
-                        <select class="form-control" id="status" required [(ngModel)]="users.role" name="role">
+                        <select class="form-control" id="role" required [(ngModel)]="role" name="role">
                             <option value="leader">Leader</option>
                             <option value="employee">Employee</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="team">Đội</label>
-                        <input type="text" class="form-control" id="team" required [(ngModel)]="users.team" name="team">
+                        <label for="image">Hình ảnh</label>
+                        <input type="file" class="form-control" id="image" required [(ngModel)]="image" name="image">
                     </div>
                     <div class="form-group">
-                      <label for="created_at">Ngày Tạo Ra</label>
-                      <input type="date" class="form-control" id="created_at" required [(ngModel)]="users.created_at" name="created_at">
-                  </div>
+                        <label for="team">Đội</label>
+                        <input type="text" class="form-control" id="team" required [(ngModel)]="team" name="team">
+                    </div>
+                    <div class="form-group">
+                        <label for="created_at">Ngày Tạo Ra</label>
+                        <input type="date" class="form-control" id="created_at" required [(ngModel)]="created_at"
+                            name="created_at">
+                    </div>
                     <div class="form-group">
                         <label for="update_at">Ngày Cập Nhật</label>
-                        <input type="date" class="form-control" id="update_at" required [(ngModel)]="users.update_at" name="update_at">
+                        <input type="date" class="form-control" id="update_at" required [(ngModel)]="update_at"
+                            name="update_at">
                     </div>
                     <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Thêm mới</button>
                 </form>
-
-              
             </div>
 
         </div>
     </div>
-   
+
     <script src="../../assets/admin/js/jquery-1.10.2.js"></script>
     <!-- BOOTSTRAP SCRIPTS -->
     <script src="../../assets/admin/js/bootstrap.min.js"></script>
