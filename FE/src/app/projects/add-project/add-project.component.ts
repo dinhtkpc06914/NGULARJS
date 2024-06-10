@@ -44,7 +44,4 @@ export class AddProjectComponent implements OnInit {
     );
   }
 
-  formValid() {
-    return this.name && this.description && this.leader_id && this.team && this.start_date && this.end_date && this.budget && this.status;
-  }
 }

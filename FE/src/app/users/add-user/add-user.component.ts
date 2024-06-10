@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsersService } from '../../services/user.service';
-
+import { NgForm } from '@angular/forms' 
 @Component({
   selector: 'app-add-user',
   templateUrl: './add-user.component.html',
