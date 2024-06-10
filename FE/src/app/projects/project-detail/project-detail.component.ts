@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProjectService } from '../../services/project.service'; 
-import { IProject } from '../../entities/project';
+
 import { Location } from '@angular/common';
 
 @Component({
@@ -10,12 +10,11 @@ import { Location } from '@angular/common';
   styleUrls: ['./project-detail.component.css']
 })
 export class ProjectDetailComponent implements OnInit {
-  project: IProject;
+  project: any;
 
   constructor(private route: ActivatedRoute, private projectService: ProjectService, private location: Location) { }
 
   ngOnInit() {
-    // Lấy ID từ thanh địa chỉ (URL)
     const id = this.route.snapshot.paramMap.get('id');
     this.getProjectDetail(id);
   }
@@ -28,6 +27,7 @@ export class ProjectDetailComponent implements OnInit {
       error => console.error('Lỗi khi lấy chi tiết dự án:', error)
     );
   }
+  
   onBack(): void {
     this.location.back();
   }
