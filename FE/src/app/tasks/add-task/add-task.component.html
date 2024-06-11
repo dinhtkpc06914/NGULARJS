@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mẫu Quản trị Bootstrap Miễn phí: Binary Admin</title>
     <!-- STYLES CỦA BOOTSTRAP-->
-
     <link href="assets/admin/css/bootstrap.css" rel="stylesheet" />
     <!-- STYLES CỦA FONTAWESOME-->
     <link href="assets/admin/css/font-awesome.css" rel="stylesheet" />
@@ -22,23 +21,32 @@
                 <div class="col-md-12">
                     <h2>Thêm Task</h2>
                 </div>
-                <form (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm">
-                    <div class="form-group">
-                      <label for="project_id">Project ID</label>
-                      <input type="text" class="form-control" id="project_id" required [(ngModel)]="task.project_id" name="project_id">
-                    </div>
+                <form (submit)="createtask()">
+                  <div class="form-group">
+                    <label for="project_id">Dự Án</label>
+                    <select class="form-control" id="project_id" required [(ngModel)]="project_id" name="project_id">
+                      <option *ngFor="let project of projects" [value]="project._id">{{ project.name }}</option>
+                    </select>
+                  </div>
+                  
                     <div class="form-group">
                       <label for="name">Tên Task</label>
-                      <input type="text" class="form-control" id="name" required [(ngModel)]="task.name" name="name">
+                      <input type="text" class="form-control" id="name" required [(ngModel)]="name" name="name">
                     </div>
+
                     <div class="form-group">
                       <label for="description">Mô Tả</label>
-                      <textarea class="form-control" id="description" required [(ngModel)]="task.description" name="description"></textarea>
+                      <textarea class="form-control" id="description" required [(ngModel)]="description" name="description"></textarea>
                     </div>
+
                     <div class="form-group">
-                      <label for="assignee_id">Assignee ID</label>
-                      <input type="text" class="form-control" id="assignee_id" required [(ngModel)]="task.assignee_id" name="assignee_id">
+                      <label for="assignee_id">Người Được Giao</label>
+                      <select class="form-control" id="assignee_id" required [(ngModel)]="assignee_id" name="assignee_id">
+                        <option *ngFor="let user of users" [value]="user._id">{{ user.username }}</option>
+                      </select>
+                      
                     </div>
+
                     <div class="form-group">
                       <label for="status">Trạng thái</label>
                       <select class="form-control" id="status" required [(ngModel)]="task.status" name="status">
@@ -46,7 +54,13 @@
                         <option value="in progress">In Progress</option>
                         <option value="done">Done</option>
                       </select>
+                      <div *ngIf="addTaskForm.controls['status'].invalid && (addTaskForm.controls['status'].dirty || addTaskForm.controls['status'].touched)"
+                            class="alert alert-danger">
+                            <div *ngIf="addTaskForm.controls['status'].errors?.required">Trạng Thái Không Được Để Trống.
+                            </div>
+                        </div>
                     </div>
+
                     <div class="form-group">
                       <label for="priority">Mức Độ Ưu Tiên</label>
                       <select class="form-control" id="priority" required [(ngModel)]="task.priority" name="priority">
@@ -54,18 +68,24 @@
                         <option value="medium">Medium</option>
                         <option value="high">High</option>
                       </select>
+                      <div *ngIf="addTaskForm.controls['priority'].invalid && (addTaskForm.controls['priority'].dirty || addTaskForm.controls['priority'].touched)"
+                            class="alert alert-danger">
+                            <div *ngIf="addTaskForm.controls['priority'].errors?.required">Mức Độ Ưu Tiên Không Được Để Trống.
+                            </div>
+                        </div>
                     </div>
+
                     <div class="form-group">
                       <label for="start_date">Ngày Bắt Đầu</label>
-                      <input type="date" class="form-control" id="start_date" required [(ngModel)]="task.start_date" name="start_date">
+                      <input type="date" class="form-control" id="start_date" required [(ngModel)]="start_date" name="start_date">
                     </div>
+
                     <div class="form-group">
                       <label for="due_date">Ngày Hoàn Thành</label>
-                      <input type="date" class="form-control" id="due_date" required [(ngModel)]="task.due_date" name="due_date">
+                      <input type="date" class="form-control" id="due_date" required [(ngModel)]="due_date" name="due_date">
                     </div>
-                    <button type="submit" class="btn btn-primary" [disabled]="taskForm.invalid">Thêm mới</button>
+                    <button type="submit" class="btn btn-primary">Thêm mới</button>
                   </form>
-
             </div>
             <!-- Kết thúc TRANG NỘI BỘ  -->
         </div>
@@ -82,5 +102,4 @@
     <!-- SCRIPTS TÙY CHỈNH -->
     <script src="assets/admin/js/custom.js"></script>
 </body>
-
 </html>
