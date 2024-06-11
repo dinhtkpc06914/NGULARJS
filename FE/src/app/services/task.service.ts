@@ -4,7 +4,6 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
-import { ITask } from '../entities/task'
 
 @Injectable()
 export class TaskService {
@@ -12,9 +11,9 @@ export class TaskService {
 
   constructor(private http: HttpClient) {}
 
-  getAlltasks(): Observable<ITask[]> {
-    return this.http.get<ITask[]>(this.url)
-      .map(response => response as ITask[])
+  getAlltasks(): Observable<any[]> {
+    return this.http.get<any[]>(this.url)
+      .map(response => response as any[])
       .catch(this.handleError);
   }
 
@@ -40,10 +39,10 @@ export class TaskService {
   }
 
 
-  updatetask(task: ITask): Observable<ITask> {
+  updatetask(task: any): Observable<any> {
     if (task._id) {
       const taskId = task._id;
-      return this.http.put<ITask>(`${this.url}/${taskId}`, task)
+      return this.http.put<any>(`${this.url}/${taskId}`, task)
         .catch(this.handleError);
     } else {
       console.error('ID task không hợp lệ!');
