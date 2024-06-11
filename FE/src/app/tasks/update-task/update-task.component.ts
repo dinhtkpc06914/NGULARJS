@@ -59,7 +59,7 @@ export class UpdateTaskComponent implements OnInit {
     };
     console.log('Task data before update:', taskData); // Log dữ liệu trước khi gửi
 
-    this.taskService.updateTask(taskData).subscribe(
+    this.taskService.updatetask(taskData).subscribe(
         res => {
             this.router.navigate(['/list-task']);
         },

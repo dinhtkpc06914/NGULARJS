@@ -4,28 +4,26 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
-import { Router } from '@angular/router';
-import { environment } from '../../environments/environment';
-import { ITask } from '../entities/task'
 
 @Injectable()
 export class TaskService {
   private url = 'http://localhost:3000/api/tasks';
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient) {}
 
-  getAlltasks(): Observable<ITask[]> {
-    return this.http.get<ITask[]>(this.url)
-      .map(response => response as ITask[])
+  getAlltasks(): Observable<any[]> {
+    return this.http.get<any[]>(this.url)
+      .map(response => response as any[])
       .catch(this.handleError);
   }
 
-  getTaskById(id: string): Observable<ITask> {
+
+  getTaskById(id: string): Observable<any> {
     if (!id) {
       return Observable.throw('ID không hợp lệ');
     }
-    return this.http.get<ITask>(`${this.url}/${id}`)
-      .catch(this.handleError);
+    return this.http.get<any>(`${this.url}/${id}`)
+    .catch(this.handleError);
   }
 
   
@@ -35,14 +33,16 @@ export class TaskService {
       .catch(this.handleError);
   }
 
-  createtask(post:any): Observable<any> {
-    return this.http.post(`${this.url}`, post);
+
+  createtask(task:any): Observable<any> {
+    return this.http.post(`${this.url}`, task);
   }
 
-  updatetask(task: ITask): Observable<ITask> {
+
+  updatetask(task: any): Observable<any> {
     if (task._id) {
       const taskId = task._id;
-      return this.http.put<ITask>(`${this.url}/${taskId}`, task)
+      return this.http.put<any>(`${this.url}/${taskId}`, task)
         .catch(this.handleError);
     } else {
       console.error('ID task không hợp lệ!');
