@@ -39,7 +39,7 @@ export class TaskService {
   }
 
 
-  updatetask(task: any): Observable<any> {
+  updatetask(task: ITask): Observable<ITask> {
     if (task._id) {
       const taskId = task._id;
       return this.http.put<any>(`${this.url}/${taskId}`, task)
