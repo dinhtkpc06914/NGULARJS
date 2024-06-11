@@ -36,10 +36,12 @@ export class TaskService {
       .catch(this.handleError);
   }
 
+
   updatetask(task: any): Observable<any> {
-    if (task.id) {
-      const taskId = task.id;
+    if (task._id) {
+      const taskId = task._id;
       return this.http.put<any>(`${this.url}/${taskId}`, task)
+
         .catch(this.handleError);
     } else {
       console.error('ID task không hợp lệ!');

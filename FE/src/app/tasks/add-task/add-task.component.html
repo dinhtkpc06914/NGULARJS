@@ -58,10 +58,9 @@
                       <label for="status">Trạng thái</label>
                       <select class="form-control" id="status" required [(ngModel)]="status" name="status">
 
-
-                        <option value="to do">Đang chờ</option>
-                        <option value="inprogress">Đang tiến hành</option>
-                        <option value="done">Đã hoàn thành</option>
+                        <option value="Đang chờ">Đang chờ</option>
+                        <option value="Đang tiến hành">Đang tiến hành</option>
+                        <option value="Đã hoàn thành">Đã hoàn thành</option>
 
                       </select>
                       <div *ngIf="addTaskForm.controls['status'].invalid && (addTaskForm.controls['status'].dirty || addTaskForm.controls['status'].touched)"
@@ -73,9 +72,10 @@
                     <div class="form-group">
                       <label for="priority">Mức Độ Ưu Tiên</label>
                       <select class="form-control" id="priority" required [(ngModel)]="priority" name="priority">
-                        <option value="low">Thấp</option>
-                        <option value="medium">Trung bình</option>
-                        <option value="high">Cao</option>
+
+                        <option value="Thấp">Thấp</option>
+                        <option value="Trung bình">Trung bình</option>
+                        <option value="Cao">Cao</option>
                       </select>
                       <div *ngIf="addTaskForm.controls['priority'].invalid && (addTaskForm.controls['priority'].dirty || addTaskForm.controls['priority'].touched)"
                       class="alert alert-danger">
