@@ -37,8 +37,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     TaskModule,
     ProjectModule,
     UserModule,
-    ReactiveFormsModule,
-   
+    ReactiveFormsModule,  
   ],
   providers: [
     ProjectService,
@@ -48,4 +47,6 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  
+ }

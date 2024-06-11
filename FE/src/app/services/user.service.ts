@@ -12,10 +12,8 @@ export class UsersService {
   private url2 = 'http://localhost:3000/api/user';
   constructor(private http: HttpClient) { }
 
-  getAllusers(): Observable<IUsers[]> {
-    return this.http.get<IUsers[]>(this.url)
-      .map(response => response as IUsers[])
-      .catch(this.handleError);
+  getAllUsers() {
+    return this.http.get(this.url);
   }
   getUserById(id: string): Observable<IUsers> {
     if (!id) {

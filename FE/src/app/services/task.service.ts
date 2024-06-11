@@ -39,9 +39,17 @@ export class TaskService {
     return this.http.post(`${this.url}`, task);
   }
 
-  updateTask(task: any): Observable<any> {
-    return this.http.put(`${this.url}/${task.id}`, task);
-}
+
+  updatetask(task: ITask): Observable<ITask> {
+    if (task._id) {
+      const taskId = task._id;
+      return this.http.put<ITask>(`${this.url}/${taskId}`, task)
+        .catch(this.handleError);
+    } else {
+      console.error('ID task không hợp lệ!');
+      return Observable.throw('ID task không hợp lệ!');
+    }
+  }
 
   private handleError(error: HttpErrorResponse) {
     let errorMessage = 'Unknown error!';
