@@ -17,31 +17,28 @@ export class TaskService {
       .catch(this.handleError);
   }
 
-
   getTaskById(id: string): Observable<any> {
     if (!id) {
       return Observable.throw('ID không hợp lệ');
     }
     return this.http.get<any>(`${this.url}/${id}`)
-    .catch(this.handleError);
+      .catch(this.handleError);
   }
 
-  
   deletetask(id: string): Observable<void> {
-    console.log(`Xóa task với ID: ${id}`); 
+    console.log(`Xóa task với ID: ${id}`);
     return this.http.delete<void>(`${this.url}/${id}`)
       .catch(this.handleError);
   }
 
-
-  createtask(task:any): Observable<any> {
-    return this.http.post(`${this.url}`, task);
+  createtask(task: any): Observable<any> {
+    return this.http.post<any>(this.url, task)
+      .catch(this.handleError);
   }
 
-
-  updatetask(task: ITask): Observable<ITask> {
-    if (task._id) {
-      const taskId = task._id;
+  updatetask(task: any): Observable<any> {
+    if (task.id) {
+      const taskId = task.id;
       return this.http.put<any>(`${this.url}/${taskId}`, task)
         .catch(this.handleError);
     } else {
