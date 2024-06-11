@@ -25,21 +25,38 @@
                     <div class="form-group">
                       <label for="project_id">Project ID</label>
                       <input type="text" class="form-control" id="project_id" required [(ngModel)]="project_id" name="project_id">
+                      <div *ngIf="addTaskForm.controls['project_id'].invalid && (addTaskForm.controls['project_id'].dirty || addTaskForm.controls['project_id'].touched)"
+                            class="alert alert-danger">
+                            <div *ngIf="addTaskForm.controls['project_id'].errors?.required">ID Dự Án Không Được Để Trống.
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group">
                       <label for="name">Tên Task</label>
                       <input type="text" class="form-control" id="name" required [(ngModel)]="name" name="name">
-                      
+                      <div *ngIf="addTaskForm.controls['name'].invalid && (addTaskForm.controls['name'].dirty || addTaskForm.controls['name'].touched)"
+                            class="alert alert-danger">
+                            <div *ngIf="addTaskForm.controls['name'].errors?.required">Tên Task Không Được Để Trống.
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group">
                       <label for="description">Mô Tả</label>
                       <textarea class="form-control" id="description" required [(ngModel)]="description" name="description"></textarea>
-                    
+                      <div *ngIf="addTaskForm.controls['description'].invalid && (addTaskForm.controls['description'].dirty || addTaskForm.controls['description'].touched)"
+                            class="alert alert-danger">
+                            <div *ngIf="addTaskForm.controls['description'].errors?.required">Mô Tả Không Được Để Trống.
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group">
                       <label for="assignee_id">Người được giao(ID)</label>
                       <input type="text" class="form-control" id="assignee_id" required [(ngModel)]="assignee_id" name="assignee_id">
-                      
+                      <div *ngIf="addTaskForm.controls['assignee_id'].invalid && (addTaskForm.controls['assignee_id'].dirty || addTaskForm.controls['assignee_id'].touched)"
+                            class="alert alert-danger">
+                            <div *ngIf="addTaskForm.controls['assignee_id'].errors?.required">ID Người Được Giao Không Được Để Trống.
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group">
                       <label for="status">Trạng thái</label>
@@ -51,7 +68,11 @@
                         <option value="done">Đã hoàn thành</option>
 
                       </select>
-                     
+                      <div *ngIf="addTaskForm.controls['status'].invalid && (addTaskForm.controls['status'].dirty || addTaskForm.controls['status'].touched)"
+                      class="alert alert-danger">
+                      <div *ngIf="addTaskForm.controls['status'].errors?.required">Trạng Thái Không Được Để Trống.
+                      </div>
+                  </div>
                     </div>
                     <div class="form-group">
                       <label for="priority">Mức Độ Ưu Tiên</label>
@@ -60,16 +81,29 @@
                         <option value="medium">Trung bình</option>
                         <option value="high">Cao</option>
                       </select>
+                      <div *ngIf="addTaskForm.controls['priority'].invalid && (addTaskForm.controls['priority'].dirty || addTaskForm.controls['priority'].touched)"
+                      class="alert alert-danger">
+                      <div *ngIf="addTaskForm.controls['priority'].errors?.required">Mức Độ Ưu Tiên Không Được Để Trống.
+                      </div>
+                  </div>
                     </div>
                     <div class="form-group">
                       <label for="start_date">Ngày Bắt Đầu</label>
                       <input type="date" class="form-control" id="start_date" required [(ngModel)]="start_date" name="start_date">
-    
+                      <div *ngIf="addTaskForm.controls['start_date'].invalid && (addTaskForm.controls['start_date'].dirty || addTaskForm.controls['start_date'].touched)"
+                      class="alert alert-danger">
+                      <div *ngIf="addTaskForm.controls['start_date'].errors?.required">Ngày Bắt Đầu Không Được Để Trống.
+                      </div>
+                  </div>
                     </div>
                     <div class="form-group">
                       <label for="due_date">Ngày Hoàn Thành</label>
                       <input type="date" class="form-control" id="due_date" required [(ngModel)]="due_date" name="due_date">
-                      
+                      <div *ngIf="addTaskForm.controls['due_date'].invalid && (addTaskForm.controls['due_date'].dirty || addTaskForm.controls['due_date'].touched)"
+                      class="alert alert-danger">
+                      <div *ngIf="addTaskForm.controls['due_date'].errors?.required">Ngày Hoàn Thành Không Được Để Trống.
+                      </div>
+                  </div>
                     </div>
                     <button type="submit" class="btn btn-primary" >Thêm mới</button>
                   </form>
