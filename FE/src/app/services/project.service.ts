@@ -13,10 +13,8 @@ export class ProjectService {
 
   constructor(private http: HttpClient) { }
 
-  getAllprojects(): Observable<IProject[]> {
-    return this.http.get<IProject[]>(this.url)
-      .map(response => response as IProject[])
-      .catch(this.handleError);
+  getAllProject() {
+    return this.http.get(this.url);
   }
   getProjectById(id: string): Observable<any> {
     if (!id) {

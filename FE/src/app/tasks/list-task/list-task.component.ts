@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskService } from '../../services/task.service';
-import { ITask } from '../../entities/task'; 
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,9 +8,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./list-task.component.css']
 })
 export class ListtaskComponent implements OnInit {
-  tasks: ITask[] = [];
+  tasks: any[] = []; // Sử dụng kiểu any[] thay vì interface
   p: number = 1; // Current page number
-  newTask: ITask = {
+  newTask: any = { // Sử dụng kiểu any thay vì interface
     project_id: '',
     name: '',
     description: '',
@@ -61,23 +60,5 @@ export class ListtaskComponent implements OnInit {
     }
   }
 
-  // createtask() {
-  //   this.taskService.createtask(this.newTask).subscribe(
-  //     () => {
-  //       console.log('Task created successfully');
-  //       this.getAlltasks();
-  //       this.newTask = {
-  //         project_id: '',
-  //         name: '',
-  //         description: '',
-  //         assignee_id: '',
-  //         status: '',
-  //         priority: '',
-  //         start_date: '',
-  //         due_date: ''
-  //       };
-  //     },
-  //     error => console.error('Error creating task:', error)
-  //   );
-  // }
+  
 }

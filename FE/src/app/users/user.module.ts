@@ -7,6 +7,7 @@ import { UserRoutingModule } from './user-routing.module';
 import { AddUserComponent } from './add-user/add-user.component';
 import { ListUsersComponent } from './list-user/list-user.component';
 
+
 @NgModule({
   imports: [
     CommonModule,
@@ -24,4 +25,6 @@ import { ListUsersComponent } from './list-user/list-user.component';
     ListUsersComponent
   ]
 })
-export class UserModule { }
+export class UserModule { 
+ 
+}
