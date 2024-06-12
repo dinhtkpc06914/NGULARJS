@@ -11,9 +11,9 @@ import { AuthGuard } from '../auth/auth.guard';
 import { PagenotfundComponent } from '../pagenotfund/pagenotfund.component';
 const ProjectRoutes: Routes = [
   { path: 'add-project', component: AddProjectComponent,canActivate: [AuthGuard], data: { expectedRoles: ['leader'] } },
- { path: 'project/:id', component: ProjectDetailComponent },
+ { path: 'project/:id', component: ProjectDetailComponent,canActivate: [AuthGuard] },
  { path: 'projects/:id', component: UpdateProjectComponent,canActivate: [AuthGuard], data: { expectedRoles: ['leader'] } },
- { path: 'list-project', component: ListProjectComponent },
+ { path: 'list-project', component: ListProjectComponent,canActivate: [AuthGuard]},
  { path: '404', component: PagenotfundComponent },
 ];
 

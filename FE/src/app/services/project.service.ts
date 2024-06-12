@@ -9,7 +9,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class ProjectService {
   private url = 'http://localhost:3000/api/projects';
-
+  private ur2 = 'http://localhost:3000/api/users';
 
   constructor(private http: HttpClient) { }
 
@@ -32,7 +32,10 @@ export class ProjectService {
     return this.http.delete<void>(`${this.url}/${id}`)
       .catch(this.handleError);
   }
-  
+  getUserNameById(userId: string): Observable<any> {
+    // Lấy thông tin người dùng theo ID từ API
+    return this.http.get<any>(`${this.ur2}/${userId}`);
+  }
   updateProject(project: any): Observable<any> {
     return this.http.put(`${this.url}/${project.id}`, project);
   }
