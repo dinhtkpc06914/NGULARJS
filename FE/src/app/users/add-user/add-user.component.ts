@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsersService } from '../../services/user.service';
-import { NgForm } from '@angular/forms' 
+
 @Component({
   selector: 'app-add-user',
   templateUrl: './add-user.component.html',
@@ -17,9 +17,9 @@ export class AddUserComponent implements OnInit {
   created_at: string;
   updated_at: string;
   errorMessage: string;
+ 
 
   constructor(private userService: UsersService, private router: Router) { }
-
 
   ngOnInit() {
   }
@@ -47,4 +47,6 @@ export class AddUserComponent implements OnInit {
   formValid() {
     return this.username && this.password && this.email && this.role && this.image && this.team;
   }
+
+ 
 }

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mẫu Quản trị Bootstrap Miễn phí: Binary Admin</title>
     <!-- STYLES CỦA BOOTSTRAP-->
+
     <link href="assets/admin/css/bootstrap.css" rel="stylesheet" />
     <!-- STYLES CỦA FONTAWESOME-->
     <link href="assets/admin/css/font-awesome.css" rel="stylesheet" />
@@ -18,7 +19,7 @@
         <div id="page-wrapper">
             <div id="page-inner">
                 <div class="col-md-12">
-                    <h2>Sửa Task</h2>
+                    <h2>Thêm Task</h2>
                 </div>
                 <form (submit)="updateTask()">
                   <div class="form-group">
@@ -62,6 +63,7 @@
                     <input type="date" class="form-control" id="due_date" required [(ngModel)]="due_date" name="due_date">
                   </div>
                   <button type="submit" class="btn btn-primary">Cập nhật</button>
+                  <p *ngIf="errorMessage" class="text-danger">{{ errorMessage }}</p>
                 </form>
             </div>
             <!-- Kết thúc TRANG NỘI BỘ  -->

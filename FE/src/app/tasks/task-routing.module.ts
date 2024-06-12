@@ -9,7 +9,7 @@ import { UpdateTaskComponent } from './update-task/update-task.component';
 const TaskRoutes: Routes = [
   { path: 'list-task', component: ListtaskComponent },
   { path: 'add-task', component: AddTaskComponent },
-  { path: 'tasks/:id', component: UpdateTaskComponent}
+  { path: 'update-task/:id', component: UpdateTaskComponent}
 ];
 
 @NgModule({
