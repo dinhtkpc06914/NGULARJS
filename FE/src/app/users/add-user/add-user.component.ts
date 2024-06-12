@@ -25,7 +25,7 @@ export class AddUserComponent implements OnInit {
   }
 
   addUser() {
-    this.userService.addUser({
+    this.userService.createUser({
       username: this.username,
       password: this.password,
       email: this.email,

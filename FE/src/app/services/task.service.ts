@@ -4,44 +4,43 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
-import { Router } from '@angular/router';
+import { ITask } from '../entities/task'
 
 @Injectable()
 export class TaskService {
   private url = 'http://localhost:3000/api/tasks';
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient) {}
 
-  getAllTasks(): Observable<any[]> {
-    return this.http.get<any[]>(this.url).catch(this.handleError);
+  getAlltasks(){
+    return this.http.get(this.url);
   }
 
   getTaskById(id: string): Observable<any> {
     if (!id) {
       return Observable.throw('ID không hợp lệ');
     }
-    return this.http.get<any>(`${this.url}/${id}`).catch(this.handleError);
+    return this.http.get<any>(`${this.url}/${id}`)
+    .catch(this.handleError);
   }
 
-  deleteTask(id: string): Observable<void> {
-    console.log(`Xóa task với ID: ${id}`);
-    return this.http.delete<void>(`${this.url}/${id}`).catch(this.handleError);
+
+  deletetask(id: string): Observable<void> {
+    console.log(`Xóa task với ID: ${id}`); 
+    return this.http.delete<void>(`${this.url}/${id}`)
+      .catch(this.handleError);
   }
 
-  createTask(post: any): Observable<any> {
-    return this.http.post<any>(this.url, post).catch(this.handleError);
+
+  createtask(task:any): Observable<any> {
+    return this.http.post(`${this.url}`, task);
   }
 
   updateTask(task: any): Observable<any> {
-    if (task._id) {
-      const taskId = task._id;
-      return this.http.put<any>(`${this.url}/${taskId}`, task).catch(this.handleError);
-    } else {
-      console.error('ID task không hợp lệ!');
-      return Observable.throw('ID task không hợp lệ!');
-    }
-  }
+    return this.http.put(`${this.url}/${task.id}`, task);
+}
 
+  
   private handleError(error: HttpErrorResponse) {
     let errorMessage = 'Unknown error!';
     if (error.error instanceof ErrorEvent) {

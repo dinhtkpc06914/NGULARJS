@@ -10,39 +10,29 @@ import { Router } from '@angular/router';
 export class ListtaskComponent implements OnInit {
   tasks: any[] = []; // Sử dụng kiểu any[] thay vì interface
   p: number = 1; // Current page number
-  newTask: any = { // Sử dụng kiểu any thay vì interface
-    project_id: '',
-    name: '',
-    description: '',
-    assignee_id: '',
-    status: '',
-    priority: '',
-    start_date: '',
-    due_date: ''
-  };
-
   constructor(private taskService: TaskService, private router: Router) { }
 
   ngOnInit() {
-    this.getAlltasks();
+    this.getAllTasks();
   }
   
-  getAlltasks() {
-    this.taskService.getAllTasks().subscribe(
-      data => {
+  getAllTasks() {
+    this.taskService.getAlltasks().subscribe(
+      (data: any[]) => {
         console.log('Data received:', data);
         this.tasks = data;
       },
-      error => console.error('Lỗi khi lấy bài viết:', error)
+      error => console.error('Lỗi khi lấy công việc:', error)
     );
   }
+
 
   deletetask(id: string) {
     console.log('Deleting post with ID:', id);
     if (id) {
-      this.taskService.deleteTask(id).subscribe(
+      this.taskService.deletetask(id).subscribe(
         () => {
-          this.getAlltasks();
+          this.getAllTasks();
           alert('Xóa thành công!');
         },
         error => {

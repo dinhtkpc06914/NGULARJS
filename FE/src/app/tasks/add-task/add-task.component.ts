@@ -73,7 +73,7 @@ export class AddTaskComponent implements OnInit {
     }
     
   createtask() {
-    this.taskService.createTask({
+    this.taskService.createtask({
       project_id: this.project_id,
       name: this.name,
       description: this.description,
