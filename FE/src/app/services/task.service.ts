@@ -4,12 +4,12 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
-import { ITask } from '../entities/task'
 
 @Injectable()
 export class TaskService {
   private url = 'http://localhost:3000/api/tasks';
-
+  private url2 = 'http://localhost:3000/api/projects';
+  private url3 = 'http://localhost:3000/api/users';
   constructor(private http: HttpClient) {}
 
   getAlltasks(){
@@ -40,7 +40,15 @@ export class TaskService {
     return this.http.put(`${this.url}/${task.id}`, task);
 }
 
-  
+getUserNameById(userId: string): Observable<any> {
+  // Lấy thông tin người dùng theo ID từ API
+  return this.http.get<any>(`${this.url3}/${userId}`);
+}
+
+getProjectNameById(projectId: string): Observable<any> {
+  // Lấy thông tin người dùng theo ID từ API
+  return this.http.get<any>(`${this.url2}/${projectId}`);
+}
   private handleError(error: HttpErrorResponse) {
     let errorMessage = 'Unknown error!';
     if (error.error instanceof ErrorEvent) {

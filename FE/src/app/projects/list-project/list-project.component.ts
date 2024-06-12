@@ -18,10 +18,9 @@ export class ListProjectComponent implements OnInit {
 
   loadProjects(): void {
     this.projectService.getAllProject().subscribe((projects: any[]) => {
-      // Lặp qua mỗi dự án và gọi phương thức để lấy tên người quản lý
       for (const project of projects) {
         this.projectService.getUserNameById(project.leader_id).subscribe((userData: any) => {
-          project.leader_name = userData.username; // Gán tên người quản lý vào thuộc tính leader_name của dự án
+          project.leader_name = userData.username; 
         });
       }
       this.projects = projects;

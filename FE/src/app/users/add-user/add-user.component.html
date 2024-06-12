@@ -67,7 +67,7 @@
                     </div>
                     <div class="form-group">
                         <label for="image">Hình ảnh</label>
-                        <input type="file" [(ngModel)]="image" id="image" name="image" required>
+                        <input type="file" (change)="uploadFile($event)" [(ngModel)]="image" id="image" name="image" required>
                         <div *ngIf="addUserForm.controls['image']?.invalid && (addUserForm.controls['image']?.dirty || addUserForm.controls['image']?.touched)"
                              class="alert alert-danger">
                           <div *ngIf="addUserForm.controls['image']?.errors?.required">Hình ảnh là bắt buộc.</div>

@@ -1,31 +1,43 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskService } from '../../services/task.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-task',
   templateUrl: './list-task.component.html',
   styleUrls: ['./list-task.component.css']
 })
-export class ListtaskComponent implements OnInit {
-  tasks: any[] = []; // Sử dụng kiểu any[] thay vì interface
-  p: number = 1; // Current page number
-  constructor(private taskService: TaskService, private router: Router) { }
+export class ListTaskComponent implements OnInit {
+  tasks: any[] = [];
+  p: number = 1;
+
+  constructor(private taskService: TaskService) { }
 
   ngOnInit() {
     this.getAllTasks();
   }
-  
+
   getAllTasks() {
     this.taskService.getAlltasks().subscribe(
       (data: any[]) => {
         console.log('Data received:', data);
         this.tasks = data;
+        this.loadAssigneeNamesAndProjectNames(); // Gọi phương thức để lấy tên người được giao việc và tên dự án
       },
       error => console.error('Lỗi khi lấy công việc:', error)
     );
   }
-  
+
+  loadAssigneeNamesAndProjectNames() {
+    for (const task of this.tasks) {
+      this.taskService.getUserNameById(task.assignee_id).subscribe((userData: any) => {
+        task.assignee_name = userData.username; // Gán tên người được giao việc
+      });
+
+      this.taskService.getProjectNameById(task.project_id).subscribe((projectData: any) => {
+        task.project_name = projectData.name; // Gán tên dự án
+      });
+    }
+  }
 
   deletetask(id: string) {
     console.log('Deleting post with ID:', id);
@@ -49,6 +61,4 @@ export class ListtaskComponent implements OnInit {
       this.deletetask(id);
     }
   }
-
-  
 }
