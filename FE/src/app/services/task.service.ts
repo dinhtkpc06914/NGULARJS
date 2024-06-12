@@ -5,6 +5,7 @@ import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
+
 @Injectable()
 export class TaskService {
   private url = 'http://localhost:3000/api/tasks';
@@ -49,6 +50,7 @@ getProjectNameById(projectId: string): Observable<any> {
   // Lấy thông tin người dùng theo ID từ API
   return this.http.get<any>(`${this.url2}/${projectId}`);
 }
+
   private handleError(error: HttpErrorResponse) {
     let errorMessage = 'Unknown error!';
     if (error.error instanceof ErrorEvent) {

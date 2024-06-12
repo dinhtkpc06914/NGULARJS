@@ -6,6 +6,7 @@ import { TaskService } from '../../services/task.service';
   templateUrl: './list-task.component.html',
   styleUrls: ['./list-task.component.css']
 })
+
 export class ListTaskComponent implements OnInit {
   tasks: any[] = [];
   p: number = 1;
@@ -39,6 +40,8 @@ export class ListTaskComponent implements OnInit {
     }
   }
 
+
+
   deletetask(id: string) {
     console.log('Deleting post with ID:', id);
     if (id) {
@@ -61,4 +64,5 @@ export class ListTaskComponent implements OnInit {
       this.deletetask(id);
     }
   }
+
 }

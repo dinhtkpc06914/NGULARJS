@@ -9,7 +9,9 @@ import { UpdateTaskComponent } from './update-task/update-task.component';
 import { AuthGuard } from '../auth/auth.guard';
 const TaskRoutes: Routes = [
 
+
   { path: 'list-task', component: ListTaskComponent },
+
   { path: 'add-task', component: AddTaskComponent },
   { path: 'tasks/:id', component: UpdateTaskComponent}
 ];
