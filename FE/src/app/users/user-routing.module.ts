@@ -7,10 +7,11 @@ import { AddUserComponent } from './add-user/add-user.component';
 import { ListUsersComponent } from './list-user/list-user.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
 import { AuthGuard } from '../auth/auth.guard';
-const TaskRoutes: Routes = [
+const UserRoutes: Routes = [
   { path: 'list-user', component: ListUsersComponent,canActivate: [AuthGuard] },
   { path: 'add-user', component:AddUserComponent,canActivate: [AuthGuard] },
   { path: 'users/:id', component: UpdateUserComponent },
+]
 @NgModule({
   imports: [
     CommonModule,
