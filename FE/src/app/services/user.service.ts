@@ -24,6 +24,7 @@ export class UsersService {
     return this.http.get<IUsers>(`${this.url2}/${id}`)
       .catch(this.handleError);
   }
+  
   createuser(user: IUsers): Observable<IUsers> {
     return this.http.post<IUsers>(this.url, user)
       .catch(this.handleError);
