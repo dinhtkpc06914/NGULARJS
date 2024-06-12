@@ -19,6 +19,9 @@ import { ProjectModule } from './projects/project.module';
 import { UserModule } from './users/user.module';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { PagenotfundComponent } from './pagenotfund/pagenotfund.component';
+import * as firebase from 'firebase/app';
+import { firebaseConfig } from './firebase.config';
+import 'firebase/storage';
 
 @NgModule({
   declarations: [
@@ -50,5 +53,7 @@ import { PagenotfundComponent } from './pagenotfund/pagenotfund.component';
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  
+  constructor(){
+    firebase.initializeApp(firebaseConfig);
+  }
  }

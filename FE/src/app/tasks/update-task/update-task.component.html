@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mẫu Quản trị Bootstrap Miễn phí: Binary Admin</title>
     <!-- STYLES CỦA BOOTSTRAP-->
-
     <link href="assets/admin/css/bootstrap.css" rel="stylesheet" />
     <!-- STYLES CỦA FONTAWESOME-->
     <link href="assets/admin/css/font-awesome.css" rel="stylesheet" />
@@ -19,12 +18,15 @@
         <div id="page-wrapper">
             <div id="page-inner">
                 <div class="col-md-12">
-                    <h2>Thêm Task</h2>
+
+                    <h2>Cập Nhật Task</h2>
                 </div>
-                <form (submit)="updateTask()">
+                <form (ngSubmit)="updateTask()">
                   <div class="form-group">
-                    <label for="project_id">Project ID</label>
-                    <input type="text" class="form-control" id="project_id" required [(ngModel)]="project_id" name="project_id">
+                    <label for="project_id">Dự Án</label>
+                    <select class="form-control" id="project_id" required [(ngModel)]="project_id" name="project_id">
+                      <option *ngFor="let project of projects" [value]="project._id">{{ project.name }}</option>
+                    </select>
                   </div>
                   <div class="form-group">
                     <label for="name">Tên Task</label>
@@ -35,23 +37,26 @@
                     <textarea class="form-control" id="description" required [(ngModel)]="description" name="description"></textarea>
                   </div>
                   <div class="form-group">
-                    <label for="assignee_id">Assignee ID</label>
-                    <input type="text" class="form-control" id="assignee_id" required [(ngModel)]="assignee_id" name="assignee_id">
+
+                    <label for="assignee_id">Người Được Giao</label>
+                    <select class="form-control" id="assignee_id" required [(ngModel)]="assignee_id" name="assignee_id">
+                      <option *ngFor="let user of users" [value]="user._id">{{ user.username }}</option>
+                    </select>            
                   </div>
                   <div class="form-group">
                     <label for="status">Trạng thái</label>
                     <select class="form-control" id="status" required [(ngModel)]="status" name="status">
-                      <option value="to do">To Do</option>
-                      <option value="in progress">In Progress</option>
-                      <option value="done">Done</option>
+                      <option value="Đang chờ">Đang chờ</option>
+                      <option value="Đang tiến hành">Đang tiến hành</option>
+                      <option value="Đã hoàn thành">Đã hoàn thành</option>
                     </select>
                   </div>
                   <div class="form-group">
                     <label for="priority">Mức Độ Ưu Tiên</label>
                     <select class="form-control" id="priority" required [(ngModel)]="priority" name="priority">
-                      <option value="low">Low</option>
-                      <option value="medium">Medium</option>
-                      <option value="high">High</option>
+                      <option value="Thấp">Thấp</option>
+                      <option value="Trung bình">Trung bình</option>
+                      <option value="Cao">Cao</option>
                     </select>
                   </div>
                   <div class="form-group">
@@ -81,5 +86,4 @@
     <!-- SCRIPTS TÙY CHỈNH -->
     <script src="assets/admin/js/custom.js"></script>
 </body>
-
 </html>
