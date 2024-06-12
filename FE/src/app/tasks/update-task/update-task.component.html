@@ -19,11 +19,11 @@
         <div id="page-wrapper">
             <div id="page-inner">
                 <div class="col-md-12">
-                    <h2>Thêm Task</h2>
+                    <h2>Cập Nhật Task</h2>
                 </div>
                 <form (submit)="updateTask()">
                   <div class="form-group">
-                    <label for="project_id">Project ID</label>
+                    <label for="project_id">Nhóm Thực Hiện</label>
                     <input type="text" class="form-control" id="project_id" required [(ngModel)]="project_id" name="project_id">
                   </div>
                   <div class="form-group">
@@ -35,7 +35,7 @@
                     <textarea class="form-control" id="description" required [(ngModel)]="description" name="description"></textarea>
                   </div>
                   <div class="form-group">
-                    <label for="assignee_id">Assignee ID</label>
+                    <label for="assignee_id">Người Quản Lý</label>
                     <input type="text" class="form-control" id="assignee_id" required [(ngModel)]="assignee_id" name="assignee_id">
                   </div>
                   <div class="form-group">

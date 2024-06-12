@@ -17,9 +17,6 @@ export class ListProjectComponent implements OnInit {
   }
 
   loadProjects(): void {
-<<<<<<< HEAD
-    this.projectService.getAllProject().subscribe((projects: IProject[]) => {
-=======
     this.projectService.getAllProject().subscribe((projects: any[]) => {
       // Lặp qua mỗi dự án và gọi phương thức để lấy tên người quản lý
       for (const project of projects) {
@@ -27,7 +24,6 @@ export class ListProjectComponent implements OnInit {
           project.leader_name = userData.username; // Gán tên người quản lý vào thuộc tính leader_name của dự án
         });
       }
->>>>>>> cd11c0aa976816c23e0aa4990b4c6b42bc93fca6
       this.projects = projects;
     });
   }

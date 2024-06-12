@@ -25,10 +25,7 @@ export class UsersService {
 
 
   }
-<<<<<<< HEAD
-=======
-  
->>>>>>> cd11c0aa976816c23e0aa4990b4c6b42bc93fca6
+
   createuser(user: any): Observable<any> {
     return this.http.post<any>(this.url, user)
       .catch(this.handleError);
