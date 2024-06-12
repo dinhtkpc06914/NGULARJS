@@ -18,6 +18,7 @@ import { TaskModule } from './tasks/task.module';
 import { ProjectModule } from './projects/project.module';
 import { UserModule } from './users/user.module';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { PagenotfundComponent } from './pagenotfund/pagenotfund.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     HomeComponent,
     FooterComponent,
     ChartComponent,
-    BlankComponent
+    BlankComponent,
+    PagenotfundComponent
   ],
   imports: [
     BrowserModule,

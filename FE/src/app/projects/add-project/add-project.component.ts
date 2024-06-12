@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProjectService } from '../../services/project.service';
-
+import { UsersService } from '../../services/user.service';
 @Component({
   selector: 'app-add-project',
   templateUrl: './add-project.component.html',
@@ -18,9 +18,19 @@ export class AddProjectComponent implements OnInit {
   status: string;
   errorMessage: string;
 
-  constructor(private projectService: ProjectService, private router: Router) { }
+  error;
+  users;
+  isLoading = false;
+  projects;
+  constructor(
+    private projectService: ProjectService, 
+    private router: Router,
+    private userService: UsersService
+  ) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.fetchAllUsers()
+   }
 
   addProject() {
     this.projectService.addProject({
@@ -40,6 +50,25 @@ export class AddProjectComponent implements OnInit {
       },
       err => {
         this.errorMessage = 'Có lỗi xảy ra khi thêm dự án';
+      }
+    );
+  }
+
+  fetchAllUsers() {
+    this.isLoading = true;
+    this.userService.getAllUsers().subscribe(data => {
+      this.isLoading = false;
+      this.users = data;
+      // console.log(this.users);
+    },
+      error => {
+        if (error.status == '404') {
+          this.error = "Loi khong tim thay";
+        }
+        else {
+          console.log(error);
+          this.error = "Loi server " + error.message;
+        }
       }
     );
   }

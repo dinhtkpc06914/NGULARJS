@@ -6,17 +6,20 @@ import { ChartComponent } from './chart/chart.component';
 import { BlankComponent } from './blank/blank.component';
 import { AuthGuard } from './auth/auth.guard';
 import { TaskRoutingModule } from './tasks/task-routing.module';
+import { ProjectRoutingModule } from './projects/project-routing.module';
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuard] }, // Áp dụng AuthGuard cho đường dẫn mặc định
   { path: 'chart', component: ChartComponent },
   { path: 'blank', component: BlankComponent },
   { path: '', redirectTo: '/', pathMatch: 'full' }, // Loại bỏ đường dẫn mặc định, vì nó đã được thêm ở trên
+ 
 ];
 
 @NgModule({
   imports: [
     CommonModule,
     TaskRoutingModule,
+    ProjectRoutingModule,
     RouterModule.forRoot(routes)
   ],
   exports: [RouterModule],
