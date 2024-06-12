@@ -23,6 +23,7 @@ export class AddTaskComponent implements OnInit {
     start_date: string;
     due_date: string;
     errorMessage: string;
+
   constructor(
     private taskService: TaskService,
      private router: Router,
@@ -70,9 +71,8 @@ export class AddTaskComponent implements OnInit {
         }
       );
     }
-
+    
   createtask() {
-
     this.taskService.createTask({
       project_id: this.project_id,
       name: this.name,
@@ -80,16 +80,17 @@ export class AddTaskComponent implements OnInit {
       assignee_id: this.assignee_id,
       status: this.status,
       priority: this.priority,
-      start_date: this.start_date || new Date().toISOString(), // Sử dụng ngày hiện tại nếu không có ngày bắt đầu
-      due_date: this.due_date || new Date().toISOString() // Sử dụng ngày hiện tại nếu không có ngày kết thúc
+      start_date: new Date().toISOString(),
+      due_date: new Date().toISOString()
     }).subscribe(
       res => {
         this.router.navigate(['/list-task']); // Điều hướng đến trang tasks sau khi tạo task thành công
       },
       err => {
-        console.error('Error creating task:', err); // Log lỗi để kiểm tra
-        this.errorMessage = 'Có lỗi xảy ra khi tạo công việc'; // Thông báo lỗi
+        this.errorMessage = 'Không thể tạo công việc, vui lòng thử lại'; // Thông báo lỗi
       }
     );
   }
+  
+
 }

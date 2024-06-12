@@ -31,7 +31,7 @@ export class ListUsersComponent implements OnInit {
   }
 
   deleteUser(id: string) {
-    this.userService.deleteuser(id).subscribe(
+    this.userService.deleteUser(id).subscribe(
       () => {
         console.log('User deleted successfully');
         // Refresh the user list

@@ -1,4 +1,3 @@
-import { IUsers } from './../entities/user';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
@@ -10,37 +9,37 @@ import 'rxjs/add/operator/map';
 export class UsersService {
   private url = 'http://localhost:3000/api/users';
   private url2 = 'http://localhost:3000/api/user';
+  
   constructor(private http: HttpClient) { }
 
-  getAllUsers() {
-    return this.http.get(this.url);
+  getAllUsers(): Observable<any[]> {
+    return this.http.get<any[]>(this.url).catch(this.handleError);
   }
-  getUserById(id: string): Observable<IUsers> {
+
+  getUserById(id: string): Observable<any> {
     if (!id) {
       return Observable.throw('ID không hợp lệ');
     }
-    return this.http.get<IUsers>(`${this.url2}/${id}`)
-      .catch(this.handleError);
-  }
-  createuser(user: IUsers): Observable<IUsers> {
-    return this.http.post<IUsers>(this.url, user)
-      .catch(this.handleError);
-  }
-  addUser(user: any): Observable<any> {
-    return this.http.post(`${this.url}`, user);
+    return this.http.get<any>(`${this.url2}/${id}`).catch(this.handleError);
   }
 
-  deleteuser(id: string): Observable<void> {
+  createUser(user: any): Observable<any> {
+    return this.http.post<any>(this.url, user).catch(this.handleError);
+  }
+
+  addUser(user: any): Observable<any> {
+    return this.http.post<any>(this.url, user).catch(this.handleError);
+  }
+
+  deleteUser(id: string): Observable<void> {
     console.log(`Xóa user với ID: ${id}`); 
-    return this.http.delete<void>(`${this.url}/${id}`)
-      .catch(this.handleError);
+    return this.http.delete<void>(`${this.url}/${id}`).catch(this.handleError);
   }
   
-  updateuser(user: IUsers): Observable<IUsers> {
-    if (user._id && user._id) {
+  updateUser(user: any): Observable<any> {
+    if (user._id) {
       const userId = user._id;
-      return this.http.put<IUsers>(`${this.url}/${userId}`, user)
-        .catch(this.handleError);
+      return this.http.put<any>(`${this.url}/${userId}`, user).catch(this.handleError);
     } else {
       // Xử lý khi _id không hợp lệ
       console.error('ID user không hợp lệ!');
