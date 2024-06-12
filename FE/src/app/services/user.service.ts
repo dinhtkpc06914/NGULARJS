@@ -1,4 +1,3 @@
-
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
@@ -6,52 +5,41 @@ import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
+
 @Injectable()
 export class UsersService {
   private url = 'http://localhost:3000/api/users';
-  private url2 = 'http://localhost:3000/api/user';
-  constructor(private http: HttpClient) { }
 
-  getAllUsers() {
+  constructor(private http: HttpClient) {}
+
+  getAllUsers(){
     return this.http.get(this.url);
   }
+
   getUserById(id: string): Observable<any> {
     if (!id) {
       return Observable.throw('ID không hợp lệ');
     }
 
-    return this.http.get<any>(`${this.url2}/${id}`)
-      .catch(this.handleError);
-
-
+    return this.http.get<any>(`${this.url}/${id}`)
+    .catch(this.handleError);
   }
-
-  createuser(user: any): Observable<any> {
-    return this.http.post<any>(this.url, user)
-      .catch(this.handleError);
-  }
-  addUser(user: any): Observable<any> {
-    return this.http.post(`${this.url}`, user);
-  }
-
-  deleteuser(id: string): Observable<void> {
-    console.log(`Xóa user với ID: ${id}`); 
+  deleteUser(id: string): Observable<void> {
+    console.log(`Xóa task với ID: ${id}`); 
     return this.http.delete<void>(`${this.url}/${id}`)
       .catch(this.handleError);
   }
-  
-  updateuser(user: any): Observable<any> {
-    if (user._id && user._id) {
-      const userId = user._id;
-      return this.http.put<any>(`${this.url}/${userId}`, user)
-        .catch(this.handleError);
-    } else {
-      // Xử lý khi _id không hợp lệ
-      console.error('ID user không hợp lệ!');
-      return Observable.throw('ID user không hợp lệ!');
-    }
+
+
+  createUser(task:any): Observable<any> {
+    return this.http.post(`${this.url}`, task);
   }
 
+  updateUser(task: any): Observable<any> {
+    return this.http.put(`${this.url}/${task.id}`, task);
+}
+
+  
   private handleError(error: HttpErrorResponse) {
     let errorMessage = 'Unknown error!';
     if (error.error instanceof ErrorEvent) {

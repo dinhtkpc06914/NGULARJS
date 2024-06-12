@@ -13,6 +13,7 @@ export class TaskService {
   private url3 = 'http://localhost:3000/api/users';
   constructor(private http: HttpClient) {}
 
+
   getAlltasks(){
     return this.http.get(this.url);
   }
@@ -40,6 +41,7 @@ export class TaskService {
   updateTask(task: any): Observable<any> {
     return this.http.put(`${this.url}/${task.id}`, task);
 }
+
 
 getUserNameById(userId: string): Observable<any> {
   // Lấy thông tin người dùng theo ID từ API

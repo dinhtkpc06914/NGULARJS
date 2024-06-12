@@ -7,6 +7,7 @@ import { TaskService } from '../../services/task.service';
   styleUrls: ['./list-task.component.css']
 })
 
+
 export class ListTaskComponent implements OnInit {
   tasks: any[] = [];
   p: number = 1;
@@ -28,6 +29,7 @@ export class ListTaskComponent implements OnInit {
     );
   }
 
+
   loadAssigneeNamesAndProjectNames() {
     for (const task of this.tasks) {
       this.taskService.getUserNameById(task.assignee_id).subscribe((userData: any) => {
@@ -39,8 +41,6 @@ export class ListTaskComponent implements OnInit {
       });
     }
   }
-
-
 
   deletetask(id: string) {
     console.log('Deleting post with ID:', id);
@@ -65,4 +65,6 @@ export class ListTaskComponent implements OnInit {
     }
   }
 
+
+  
 }
