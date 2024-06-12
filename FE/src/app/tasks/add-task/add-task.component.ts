@@ -72,14 +72,8 @@ export class AddTaskComponent implements OnInit {
     }
 
   createtask() {
-    // Kiểm tra các trường bắt buộc
-    if (!this.project_id || !this.name || !this.assignee_id || !this.status || !this.priority) {
-      this.errorMessage = 'Vui lòng điền đầy đủ thông tin cho các trường bắt buộc.';
-      return;
-    }
 
-    // Gửi yêu cầu tạo công việc
-    this.taskService.createtask({
+    this.taskService.createTask({
       project_id: this.project_id,
       name: this.name,
       description: this.description,

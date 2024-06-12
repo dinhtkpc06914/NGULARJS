@@ -28,7 +28,7 @@ export class ListtaskComponent implements OnInit {
   }
   
   getAlltasks() {
-    this.taskService.getAlltasks().subscribe(
+    this.taskService.getAllTasks().subscribe(
       data => {
         console.log('Data received:', data);
         this.tasks = data;
@@ -40,7 +40,7 @@ export class ListtaskComponent implements OnInit {
   deletetask(id: string) {
     console.log('Deleting post with ID:', id);
     if (id) {
-      this.taskService.deletetask(id).subscribe(
+      this.taskService.deleteTask(id).subscribe(
         () => {
           this.getAlltasks();
           alert('Xóa thành công!');
