@@ -21,17 +21,24 @@
                 <div class="col-md-12">
                     <h2>Thêm Task</h2>
                 </div>
+<<<<<<< HEAD
                 <form (submit)="createtask()" #addTaskForm="ngForm">
+=======
+                <form (submit)="createtask()">
+>>>>>>> cd11c0aa976816c23e0aa4990b4c6b42bc93fca6
                   <div class="form-group">
                     <label for="project_id">Dự Án</label>
                     <select class="form-control" id="project_id" required [(ngModel)]="project_id" name="project_id">
                       <option *ngFor="let project of projects" [value]="project._id">{{ project.name }}</option>
                     </select>
+<<<<<<< HEAD
                     <div *ngIf="addTaskForm.controls['project_id'].invalid && (addTaskForm.controls['project_id'].dirty || addTaskForm.controls['project_id'].touched)"
                             class="alert alert-danger">
                             <div *ngIf="addTaskForm.controls['project_id'].errors?.required">ID Dự Án Không Được Để Trống.
                             </div>
                         </div>
+=======
+>>>>>>> cd11c0aa976816c23e0aa4990b4c6b42bc93fca6
                   </div>
                   
                     <div class="form-group">
@@ -57,11 +64,14 @@
                       <select class="form-control" id="assignee_id" required [(ngModel)]="assignee_id" name="assignee_id">
                         <option *ngFor="let user of users" [value]="user._id">{{ user.username }}</option>
                       </select>
+<<<<<<< HEAD
                       <div *ngIf="addTaskForm.controls['assignee_id'].invalid && (addTaskForm.controls['assignee_id'].dirty || addTaskForm.controls['assignee_id'].touched)"
                             class="alert alert-danger">
                             <div *ngIf="addTaskForm.controls['assignee_id'].errors?.required">ID Người Được Giao Không Được Để Trống.
                             </div>
                         </div>
+=======
+>>>>>>> cd11c0aa976816c23e0aa4990b4c6b42bc93fca6
                     </div>
                     <div class="form-group">
                       <label for="status">Trạng thái</label>

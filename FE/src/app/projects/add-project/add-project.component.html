@@ -36,10 +36,11 @@
                         <input type="text" class="form-control" id="description" [(ngModel)]="description" name="description" required>               
                     </div>
                     <div class="form-group">
-                        <label for="leader_id">ID Trưởng Nhóm</label>
-                        <input type="text" class="form-control" id="leader_id" [(ngModel)]="leader_id" name="leader_id" required>
-                      
-                    </div>
+                        <label for="leader_id">Trưởng nhóm</label>
+                        <select class="form-control" id="leader_id" required [(ngModel)]="leader_id" name="leader_id">
+                          <option *ngFor="let user of users" [value]="user._id">{{ user.username }}</option>
+                        </select>
+                      </div>
                     <div class="form-group">
                         <label for="team">Thêm Nhóm</label>
                         <input type="text" class="form-control" id="team" [(ngModel)]="team" name="team" required>

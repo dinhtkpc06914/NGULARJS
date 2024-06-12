@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectService } from '../../services/project.service';
-import { IProject } from '../../entities/project';
 
 @Component({
   selector: 'app-list-project',
@@ -8,7 +7,7 @@ import { IProject } from '../../entities/project';
   styleUrls: ['./list-project.component.css']
 })
 export class ListProjectComponent implements OnInit {
-  projects: IProject[] = [];
+  projects: any[] = [];
   p: number = 1; // Current page number
   
   constructor(private projectService: ProjectService) {}
@@ -18,7 +17,17 @@ export class ListProjectComponent implements OnInit {
   }
 
   loadProjects(): void {
+<<<<<<< HEAD
     this.projectService.getAllProject().subscribe((projects: IProject[]) => {
+=======
+    this.projectService.getAllProject().subscribe((projects: any[]) => {
+      // Lặp qua mỗi dự án và gọi phương thức để lấy tên người quản lý
+      for (const project of projects) {
+        this.projectService.getUserNameById(project.leader_id).subscribe((userData: any) => {
+          project.leader_name = userData.username; // Gán tên người quản lý vào thuộc tính leader_name của dự án
+        });
+      }
+>>>>>>> cd11c0aa976816c23e0aa4990b4c6b42bc93fca6
       this.projects = projects;
     });
   }

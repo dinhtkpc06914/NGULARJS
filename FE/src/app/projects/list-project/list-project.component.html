@@ -41,7 +41,7 @@
                                                 <tr>
                                                     <th>STT</th>                           
                                                     <th>Mô tả</th>
-                                                    <th>Mã nhóm trưởng</th>
+                                                    <th>Người quản lý</th>
                                                     <th>Tên nhóm</th>
                                                     <th>Ngày bắt đầu</th>
                                                     <th>Ngày kết thúc</th>
@@ -54,7 +54,7 @@
                                                 <tr>
                                                     <td>{{ i + 1 }}</td>                                             
                                                     <td>{{ project.description }}</td>
-                                                    <td>{{ project.leader_id }}</td>
+                                                    <td>{{ project.leader_name }}</td>
                                                     <td>{{ project.team }}</td>
                                                     <td>{{ project.start_date | date: 'dd/MM/yyyy' }}</td>
                                                     <td>{{ project.end_date | date: 'dd/MM/yyyy' }}</td>

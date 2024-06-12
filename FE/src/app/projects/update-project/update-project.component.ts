@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProjectService } from '../../services/project.service';
-
+import { UsersService } from '../../services/user.service';
 @Component({
   selector: 'app-update-project',
   templateUrl: './update-project.component.html',
@@ -19,10 +19,16 @@ export class UpdateProjectComponent implements OnInit {
   status: string = '';
   errorMessage: string = '';
 
+  error;
+  users;
+  isLoading = false;
+  projects;
+  userLeaders: any[];
   constructor(
     private projectService: ProjectService, 
     private router: Router, 
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private userService: UsersService
   ) { }
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -43,8 +49,39 @@ export class UpdateProjectComponent implements OnInit {
         }
       );
     });
+    this.fetchAllUsers();
+    this.getAllUserLeader()
+  }
+  fetchAllUsers() {
+    this.isLoading = true;
+    this.userService.getAllUsers().subscribe(data => {
+      this.isLoading = false;
+      this.users = data;
+      // console.log(this.users);
+    },
+      error => {
+        if (error.status == '404') {
+          this.error = "Loi khong tim thay";
+        }
+        else {
+          console.log(error);
+          this.error = "Loi server " + error.message;
+        }
+      }
+    );
   }
 
+  getAllUserLeader() {
+    this.userService.getAllUsers().subscribe(
+      (data: any) => {
+        this.userLeaders = data.filter((user) => user.role === "leader");
+        console.log(this.userLeaders);
+      },
+      (error) => {
+        console.error("Error loading user leaders:", error);
+      }
+    );
+  }
   updateProject() {
     // Ensure the budget is a number before updating the project
     const parsedBudget = parseFloat(this.budget.toString());
