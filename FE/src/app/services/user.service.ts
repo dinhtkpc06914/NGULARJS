@@ -19,8 +19,11 @@ export class UsersService {
     if (!id) {
       return Observable.throw('ID không hợp lệ');
     }
+
     return this.http.get<any>(`${this.url2}/${id}`)
       .catch(this.handleError);
+
+
   }
   createuser(user: any): Observable<any> {
     return this.http.post<any>(this.url, user)
