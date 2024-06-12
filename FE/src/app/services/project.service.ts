@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
-import { IProject } from '../entities/project'; // Đảm bảo đường dẫn đúng
+
 
 @Injectable()
 export class ProjectService {
