@@ -6,7 +6,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { UserRoutingModule } from './user-routing.module';
 import { AddUserComponent } from './add-user/add-user.component';
 import { ListUsersComponent } from './list-user/list-user.component';
-
+import { UpdateUserComponent } from './update-user/update-user.component';
 
 @NgModule({
   imports: [
@@ -18,11 +18,13 @@ import { ListUsersComponent } from './list-user/list-user.component';
   ],
   declarations: [
     AddUserComponent,
-    ListUsersComponent
+    ListUsersComponent,
+    UpdateUserComponent
   ],
   exports: [
     AddUserComponent,
-    ListUsersComponent
+    ListUsersComponent,
+    UpdateUserComponent
   ]
 })
 export class UserModule { 
