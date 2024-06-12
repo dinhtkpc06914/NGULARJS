@@ -1,5 +1,4 @@
 
-import { IUsers } from './../entities/user';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
@@ -13,20 +12,21 @@ export class UsersService {
   private url2 = 'http://localhost:3000/api/user';
   constructor(private http: HttpClient) { }
 
-  getAllusers(): Observable<IUsers[]> {
-    return this.http.get<IUsers[]>(this.url)
-      .map(response => response as IUsers[])
-      .catch(this.handleError);
+  getAllUsers() {
+    return this.http.get(this.url);
   }
-  getUserById(id: string): Observable<IUsers> {
+  getUserById(id: string): Observable<any> {
     if (!id) {
       return Observable.throw('ID không hợp lệ');
     }
-    return this.http.get<IUsers>(`${this.url}/${id}`)
+
+    return this.http.get<any>(`${this.url2}/${id}`)
       .catch(this.handleError);
+
+
   }
-  createuser(user: IUsers): Observable<IUsers> {
-    return this.http.post<IUsers>(this.url, user)
+  createuser(user: any): Observable<any> {
+    return this.http.post<any>(this.url, user)
       .catch(this.handleError);
   }
   addUser(user: any): Observable<any> {
@@ -38,8 +38,17 @@ export class UsersService {
     return this.http.delete<void>(`${this.url}/${id}`)
       .catch(this.handleError);
   }
-  updateUser(user: any): Observable<any> {
-    return this.http.put(`${this.url}/${user.id}`, user);
+  
+  updateuser(user: any): Observable<any> {
+    if (user._id && user._id) {
+      const userId = user._id;
+      return this.http.put<any>(`${this.url}/${userId}`, user)
+        .catch(this.handleError);
+    } else {
+      // Xử lý khi _id không hợp lệ
+      console.error('ID user không hợp lệ!');
+      return Observable.throw('ID user không hợp lệ!');
+    }
   }
 
   private handleError(error: HttpErrorResponse) {

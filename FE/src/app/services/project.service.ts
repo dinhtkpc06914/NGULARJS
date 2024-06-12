@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
-import { IProject } from '../entities/project'; // Đảm bảo đường dẫn đúng
+
 
 @Injectable()
 export class ProjectService {
@@ -13,10 +13,8 @@ export class ProjectService {
 
   constructor(private http: HttpClient) { }
 
-  getAllprojects(): Observable<IProject[]> {
-    return this.http.get<IProject[]>(this.url)
-      .map(response => response as IProject[])
-      .catch(this.handleError);
+  getAllProject() {
+    return this.http.get(this.url);
   }
   getProjectById(id: string): Observable<any> {
     if (!id) {
@@ -25,10 +23,7 @@ export class ProjectService {
     return this.http.get<any>(`${this.url}/${id}`)
       .catch(this.handleError);
   }
-  createproject(project: IProject): Observable<IProject> {
-    return this.http.post<IProject>(this.url, project)
-      .catch(this.handleError);
-  }
+ 
   addProject(project: any): Observable<any> {
     return this.http.post(`${this.url}`, project);
   }
@@ -37,7 +32,6 @@ export class ProjectService {
     return this.http.delete<void>(`${this.url}/${id}`)
       .catch(this.handleError);
   }
-
   
   updateProject(project: any): Observable<any> {
     return this.http.put(`${this.url}/${project.id}`, project);

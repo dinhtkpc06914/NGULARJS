@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-
 import { HomeComponent } from './home/home.component';
 import { ChartComponent } from './chart/chart.component';
 import { BlankComponent } from './blank/blank.component';
@@ -17,9 +16,7 @@ const routes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
-
     TaskRoutingModule,
-
     RouterModule.forRoot(routes)
   ],
   exports: [RouterModule],

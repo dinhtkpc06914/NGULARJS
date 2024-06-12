@@ -17,9 +17,9 @@ export class AddUserComponent implements OnInit {
   created_at: string;
   updated_at: string;
   errorMessage: string;
+ 
 
   constructor(private userService: UsersService, private router: Router) { }
-
 
   ngOnInit() {
   }
@@ -32,8 +32,8 @@ export class AddUserComponent implements OnInit {
       role: this.role,
       image: this.image,
       team: this.team,
-      created_at: this.created_at,
-      updated_at: this.updated_at
+      created_at: new Date().toISOString(),
+      updated_at: new Date().toISOString()
     }).subscribe(
       res => {
         this.router.navigate(['/list-user']);
@@ -47,4 +47,6 @@ export class AddUserComponent implements OnInit {
   formValid() {
     return this.username && this.password && this.email && this.role && this.image && this.team;
   }
+
+ 
 }

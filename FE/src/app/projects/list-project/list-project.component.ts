@@ -18,7 +18,7 @@ export class ListProjectComponent implements OnInit {
   }
 
   loadProjects(): void {
-    this.projectService.getAllprojects().subscribe((projects: IProject[]) => {
+    this.projectService.getAllProject().subscribe((projects: IProject[]) => {
       this.projects = projects;
     });
   }
