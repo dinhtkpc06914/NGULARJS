@@ -36,8 +36,13 @@
                 required>
             </div>
             <div class="form-group">
-              <label for="leader_id">Leader ID</label>
-              <input type="text" class="form-control" id="leader_id" [(ngModel)]="leader_id" name="leader_id" required>
+              <label for="leader_id" class="form-label">Người quản lý dự án <span class="text-danger">*</span></label>
+              <select [(ngModel)]="leader_id" name="leader_id" class="form-control" required>
+                <option value="" disabled>Chọn người quản lý</option>
+                <option *ngFor="let leader of userLeaders" [value]="leader._id">
+                  {{ leader.username }}
+                </option>
+              </select>
             </div>
             <div class="form-group">
               <label for="team">Tên nhóm</label>
