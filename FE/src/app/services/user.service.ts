@@ -27,7 +27,6 @@ export class UsersService {
   }
   createuser(user: any): Observable<any> {
     return this.http.post<any>(this.url, user)
-
       .catch(this.handleError);
   }
   addUser(user: any): Observable<any> {
