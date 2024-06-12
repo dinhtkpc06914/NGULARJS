@@ -7,12 +7,13 @@ import { BlankComponent } from './blank/blank.component';
 import { AuthGuard } from './auth/auth.guard';
 import { TaskRoutingModule } from './tasks/task-routing.module';
 import { ProjectRoutingModule } from './projects/project-routing.module';
+import { PagenotfundComponent } from './pagenotfund/pagenotfund.component';
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuard] }, // Áp dụng AuthGuard cho đường dẫn mặc định
   { path: 'chart', component: ChartComponent,canActivate: [AuthGuard] },
   { path: 'blank', component: BlankComponent,canActivate: [AuthGuard] },
   { path: '', redirectTo: '/', pathMatch: 'full' }, // Loại bỏ đường dẫn mặc định, vì nó đã được thêm ở trên
- 
+  { path: '404', component: PagenotfundComponent },
 ];
 
 @NgModule({

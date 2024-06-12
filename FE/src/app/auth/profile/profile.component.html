@@ -21,12 +21,12 @@
                             <h2 class="text-center mb-4">Thông tin tài khoản</h2>
                         </div>
                     </div>
-                    <div class="row align-items-center">
+                    <div *ngIf="user"  class="row align-items-center">
                         <div class="col-md-12 profile-img-container">
-                            <img src="assets/form/images/admin.jpg" alt="Profile Image" class="img-fluid profile-img">
+                            <img src="{{user.image}}" alt="Profile Image" class="img-fluid profile-img">
                         </div>
                         <div class="col-md-12 mt-4">
-                            <div *ngIf="user" class="card p-3">
+                            <div class="card p-3">
                                 <div class="card-body card-info">
                                     <p><strong>Username:</strong> {{ user.username }}</p>
                                     <p><strong>Role:</strong> {{ user.role }}</p>

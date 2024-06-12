@@ -43,7 +43,7 @@
                         <th>Nhóm </th>
                         <th>Hình ảnh</th>
                         <th>Ngày tạo</th>              
-                        <th>Ngày cập nhật</th>
+                 
                         <th>Thao tác</th>
                       </tr>
                     </thead>
@@ -54,12 +54,12 @@
                         <td>{{ user.email }}</td>
                         <td>{{ user.role }}</td>
                         <td>{{ user.team }}</td>
-                        <td><img src="{{user.image}}" alt="{{ user.username }}" width="50" height="50"></td> <!-- Hiển thị hình ảnh -->
+                        <td><img src="{{user.image}}" alt="{{ user.username }}" width="70" height="50"></td> <!-- Hiển thị hình ảnh -->
                         <td>{{ user.created_at | date: 'dd/MM/yyyy' }}</td>
                         <td>{{ user.updated_at | date: 'dd/MM/yyyy'}}</td>
                         <td>
                           <button class="btn btn-danger" (click)="confirmDelete(user._id)">Xóa</button>
-                          <a [routerLink]="['/users', user._id]" class="btn btn-info mt-2">Sửa</a>
+                          <a [routerLink]="['/users', user._id]" class="btn btn-info ">Sửa</a>
                         </td>
                       </tr>
                     </tbody>

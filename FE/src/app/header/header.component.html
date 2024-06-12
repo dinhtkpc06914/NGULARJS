@@ -41,12 +41,15 @@
     <nav class="navbar-default navbar-side" role="navigation">
         <div class="sidebar-collapse">
             <ul class="nav" id="main-menu">
-                <li class="text-center">
-                    <img width="100px" src="/assets/admin/img/find_user.png" class="user-image img-responsive" />
-                    <div class="d-flex align-items-center text-white ml-5" *ngIf="username">
+                <li *ngIf="user" class="text-center">
+                    <div class="col-md-12 profile-img-container">
+                        <img src="{{user.image}}" alt="Profile Image" class="img-fluid profile-img">
+                    
+                    <div class="d-flex align-items-center text-white ml-5" >
                         <h4 class="mb-0">Xin chào</h4>
-                        <h3 class="username mb-0 ml-2 text-danger">{{ username }}</h3>
+                        <h3 class="username mb-0 ml-2 text-danger">{{ user.username }}</h3>
                       </div>
+                    </div>
                 </li>
                 <li>
                     <a class="/" href=""><i class="fa fa-dashboard fa-3x"></i> Bảng Điều Khiển</a>
@@ -89,6 +92,9 @@
                         </li>
                     </ul>
                   </li>  
+                  <li>
+                    <a href="/profile"><i class="fa fa-bar-chart-o fa-3x"></i> Thông tin của bạn</a>
+                </li>
             </ul>
         </div>
     </nav>

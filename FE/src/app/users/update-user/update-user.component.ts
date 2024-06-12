@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UsersService } from '../../services/user.service';
-
+import * as firebase from 'firebase/app';
 @Component({
   selector: 'app-update-user',
   templateUrl: './update-user.component.html',
@@ -17,6 +17,7 @@ export class UpdateUserComponent implements OnInit {
   created_at: string = '';
   updated_at: string = '';
   errorMessage: string = '';
+  downloadURL: string;
 
   constructor(
     private userService: UsersService,
@@ -42,7 +43,20 @@ export class UpdateUserComponent implements OnInit {
       );
     });
   }
-
+  async uploadFile(event: Event) {
+    const input = event.target as HTMLInputElement;
+    if (input.files.length > 0) {
+      const file = input.files[0];
+      const storageRef = firebase.storage().ref();
+      const fileRef = storageRef.child(`uploads/${file.name}`);
+      fileRef.put(file).then((snapshot: any) => {
+        fileRef.getDownloadURL().then((url: string) => {
+          this.downloadURL = url;
+          console.log(this.downloadURL);
+        });
+      });
+    }
+  }
   updateUser() {
     // Ensure the budget is a number before updating the project
     this.userService.updateUser({
@@ -50,7 +64,7 @@ export class UpdateUserComponent implements OnInit {
       username: this.username,
       email: this.email,
       role: this.role,
-      image: this.image,
+      image: this.downloadURL,
       team: this.team,
       created_at: this.created_at,
       updated_at: this.updated_at

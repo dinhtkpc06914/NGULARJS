@@ -6,12 +6,21 @@ import { AuthService } from '../auth/auth.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  username: string | null = null;
+  user:any
+
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
-    this.username = this.authService.getUsername();
+    this.authService.getProfile().subscribe(
+      profile => {
+        this.user = profile;
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
+
   logout(): void {
     this.authService.logout();
   }

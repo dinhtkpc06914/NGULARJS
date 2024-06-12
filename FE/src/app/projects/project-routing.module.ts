@@ -8,13 +8,13 @@ import { ProjectDetailComponent } from './project-detail/project-detail.componen
 import { ListProjectComponent } from './list-project/list-project.component';
 import { UpdateProjectComponent } from './update-project/update-project.component';
 import { AuthGuard } from '../auth/auth.guard';
-import { PagenotfundComponent } from '../pagenotfund/pagenotfund.component';
+
 const ProjectRoutes: Routes = [
   { path: 'add-project', component: AddProjectComponent,canActivate: [AuthGuard], data: { expectedRoles: ['leader'] } },
  { path: 'project/:id', component: ProjectDetailComponent,canActivate: [AuthGuard] },
  { path: 'projects/:id', component: UpdateProjectComponent,canActivate: [AuthGuard], data: { expectedRoles: ['leader'] } },
- { path: 'list-project', component: ListProjectComponent,canActivate: [AuthGuard]},
- { path: '404', component: PagenotfundComponent },
+ { path: 'list-project', component: ListProjectComponent,canActivate: [AuthGuard],data: { expectedRoles: ['leader'] }},
+
 ];
 
 @NgModule({

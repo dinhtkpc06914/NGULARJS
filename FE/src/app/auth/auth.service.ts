@@ -28,7 +28,14 @@ export class AuthService {
     localStorage.removeItem('token');
     this.router.navigate(['/login']);
   }
-
+  getUserImage(): string | null {
+    const token = this.getToken();
+    if (token) {
+      const decoded: any = jwt_decode(token);
+      return decoded.user.image;
+    }
+    return null;
+  }
   get isLoggedIn(): boolean {
     const token = this.getToken();
     if (token) {
