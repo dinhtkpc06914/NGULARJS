@@ -11,9 +11,11 @@ export class AuthGuard implements CanActivate {
       return false;
     }
     
+    // Lấy vai trò của người dùng từ AuthService
     const userRole = this.authService.getUsername();
     console.log("user role:", userRole);
     const expectedRoles: string[] = route.data.expectedRoles;
+    // Kiểm tra xem người dùng có vai trò phù hợp không
     if (expectedRoles && !expectedRoles.includes(this.authService.getRole())) {
       this.router.navigate(['/404']);
       return false;

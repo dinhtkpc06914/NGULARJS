@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ProjectService } from '../../services/project.service'; 
-
+import { ProjectService } from '../../services/project.service';
 import { Location } from '@angular/common';
 
 @Component({
@@ -12,7 +11,11 @@ import { Location } from '@angular/common';
 export class ProjectDetailComponent implements OnInit {
   project: any;
 
-  constructor(private route: ActivatedRoute, private projectService: ProjectService, private location: Location) { }
+  constructor(
+    private route: ActivatedRoute,
+    private projectService: ProjectService,
+    private location: Location
+  ) { }
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
@@ -23,6 +26,11 @@ export class ProjectDetailComponent implements OnInit {
     this.projectService.getProjectById(id).subscribe(
       data => {
         this.project = data;
+    
+        this.projectService.getUserNameById(this.project.leader_id).subscribe((userData: any) => {
+          this.project.leader_name = userData.username;
+        });
+
       },
       error => console.error('Lỗi khi lấy chi tiết dự án:', error)
     );

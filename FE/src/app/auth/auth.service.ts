@@ -18,6 +18,7 @@ export class AuthService {
 
   login(user: any): Observable<any> {
     return this.http.post(`${this.authUrl}/login`, user).pipe(
+       // Lưu token vào localStorage khi đăng nhập thành công
       tap((res: any) => {
         localStorage.setItem('token', res.token);
       })
@@ -25,8 +26,8 @@ export class AuthService {
   }
 
   logout(): void {
-    localStorage.removeItem('token');
-    this.router.navigate(['/login']);
+    localStorage.removeItem('token'); // Xóa token đã lưu trong localStorage
+    this.router.navigate(['/login']);// Điều hướng người dùng về trang đăng nhập
   }
   getUserImage(): string | null {
     const token = this.getToken();
@@ -40,7 +41,7 @@ export class AuthService {
     const token = this.getToken();
     if (token) {
       const decoded: any = jwt_decode(token);
-      return decoded.exp > Date.now() / 1000;
+      return decoded.exp > Date.now() / 1000; // So sánh thời gian hết hạn với thời gian hiện tại
     }
     return false;
   }
@@ -56,10 +57,10 @@ export class AuthService {
   }
 
   getRole(): string | null {
-    const token = this.getToken();
+    const token = this.getToken();  // Lấy token từ localStorage
     if (token) {
-      const decoded: any = jwt_decode(token);
-      return decoded.user.role;
+      const decoded: any = jwt_decode(token); // Giải mã token
+      return decoded.user.role; // Trích xuất vai trò từ token đã giải mã
     }
     return null;
   }
