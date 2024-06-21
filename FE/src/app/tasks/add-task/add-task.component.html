@@ -39,10 +39,20 @@
                     <div class="form-group">
                       <label for="name">Tên Task</label>
                       <input type="text" class="form-control" id="name" required [(ngModel)]="name" name="name">
+                      <div *ngIf="addTaskForm.controls['name'].invalid && (addTaskForm.controls['name'].dirty || addTaskForm.controls['name'].touched)"
+                            class="alert alert-danger">
+                            <div *ngIf="addTaskForm.controls['name'].errors?.required">Tên Task Không Được Để Trống.
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group">
                       <label for="description">Mô Tả</label>
                       <textarea class="form-control" id="description" required [(ngModel)]="description" name="description"></textarea>
+                      <div *ngIf="addTaskForm.controls['description'].invalid && (addTaskForm.controls['description'].dirty || addTaskForm.controls['description'].touched)"
+                            class="alert alert-danger">
+                            <div *ngIf="addTaskForm.controls['description'].errors?.required">Mô Tả Không Được Để Trống.
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group">
                       <label for="assignee_id">Người Được Giao</label>
